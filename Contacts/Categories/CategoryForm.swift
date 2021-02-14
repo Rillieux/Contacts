@@ -11,11 +11,6 @@ struct CategoryForm: View {
 
     @StateObject var viewModel: CategoryForm.ViewModel
     
-    ///We use the State var myColor, because using category.color in the colorBinding
-    ///results in odd behavious in the color pickers sliders.
-    
-//    @State private var myColor: UIColor
-        
     @State private var isEditing = false
     
     @State private var errorAlertIsPresented = false
@@ -72,7 +67,7 @@ struct CategoryForm: View {
                             .frame(width: radius, height: radius)
                             .foregroundColor(Color(viewModel.color))
                         Spacer()
-                        ColorPicker("Tap here to edit color:", selection: colorBinding)
+                        ColorPicker("", selection: colorBinding)
                     }
                 }
                 .listStyle(GroupedListStyle())
