@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F41AE46125D969DF003E4B1E /* NewCategorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE46025D969DF003E4B1E /* NewCategorySheet.swift */; };
+		F41AE46625D969F5003E4B1E /* NewCategorySheet+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE46525D969F5003E4B1E /* NewCategorySheet+Extensions.swift */; };
+		F41AE46F25D96ACE003E4B1E /* CoreData+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE46E25D96ACE003E4B1E /* CoreData+Helper.swift */; };
+		F41AE47825D96B21003E4B1E /* Color+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE47725D96B21003E4B1E /* Color+Helper.swift */; };
+		F41AE48325D99695003E4B1E /* CategoryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE48225D99695003E4B1E /* CategoryForm.swift */; };
+		F41AE48825D997C2003E4B1E /* Contact+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE48725D997C2003E4B1E /* Contact+Helper.swift */; };
+		F41AE48D25D997DC003E4B1E /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE48C25D997DC003E4B1E /* Date+Helper.swift */; };
+		F41AE4A025D9A3C9003E4B1E /* CategoryForm+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE49F25D9A3C9003E4B1E /* CategoryForm+Extensions.swift */; };
 		F448CE6225D95B440007C821 /* ContactsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F448CE6125D95B440007C821 /* ContactsApp.swift */; };
 		F448CE6625D95B450007C821 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F448CE6525D95B450007C821 /* Assets.xcassets */; };
 		F448CE6925D95B450007C821 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F448CE6825D95B450007C821 /* Preview Assets.xcassets */; };
@@ -39,6 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F41AE46025D969DF003E4B1E /* NewCategorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategorySheet.swift; sourceTree = "<group>"; };
+		F41AE46525D969F5003E4B1E /* NewCategorySheet+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewCategorySheet+Extensions.swift"; sourceTree = "<group>"; };
+		F41AE46E25D96ACE003E4B1E /* CoreData+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Helper.swift"; sourceTree = "<group>"; };
+		F41AE47725D96B21003E4B1E /* Color+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Helper.swift"; sourceTree = "<group>"; };
+		F41AE48225D99695003E4B1E /* CategoryForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryForm.swift; sourceTree = "<group>"; };
+		F41AE48725D997C2003E4B1E /* Contact+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Helper.swift"; sourceTree = "<group>"; };
+		F41AE48C25D997DC003E4B1E /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
+		F41AE49F25D9A3C9003E4B1E /* CategoryForm+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryForm+Extensions.swift"; sourceTree = "<group>"; };
 		F448CE5E25D95B440007C821 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F448CE6125D95B440007C821 /* ContactsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsApp.swift; sourceTree = "<group>"; };
 		F448CE6525D95B450007C821 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +100,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F41AE46A25D96A00003E4B1E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F448CEA625D95E6A0007C821 /* CategoryList+Extensions.swift */,
+				F41AE46525D969F5003E4B1E /* NewCategorySheet+Extensions.swift */,
+				F41AE49F25D9A3C9003E4B1E /* CategoryForm+Extensions.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F41AE47325D96AD1003E4B1E /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				F41AE47725D96B21003E4B1E /* Color+Helper.swift */,
+				F41AE46E25D96ACE003E4B1E /* CoreData+Helper.swift */,
+				F41AE48C25D997DC003E4B1E /* Date+Helper.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		F448CE5525D95B440007C821 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +150,7 @@
 				F448CEB825D960560007C821 /* ModelExtensions */,
 				F448CE6525D95B450007C821 /* Assets.xcassets */,
 				F448CE6A25D95B450007C821 /* Persistence.swift */,
+				F41AE47325D96AD1003E4B1E /* Infrastructure */,
 				F448CE6F25D95B450007C821 /* Info.plist */,
 				F448CE6C25D95B450007C821 /* Contacts.xcdatamodeld */,
 				F448CE6725D95B450007C821 /* Preview Content */,
@@ -151,7 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				F448CEA125D95D1E0007C821 /* CategoryList.swift */,
-				F448CEA625D95E6A0007C821 /* CategoryList+Extensions.swift */,
+				F41AE48225D99695003E4B1E /* CategoryForm.swift */,
+				F41AE46025D969DF003E4B1E /* NewCategorySheet.swift */,
+				F41AE46A25D96A00003E4B1E /* ViewModels */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -167,6 +206,7 @@
 		F448CEB825D960560007C821 /* ModelExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				F41AE48725D997C2003E4B1E /* Contact+Helper.swift */,
 				F448CEB025D960490007C821 /* Category+Helper.swift */,
 			);
 			path = ModelExtensions;
@@ -303,12 +343,20 @@
 			files = (
 				F448CEA725D95E6A0007C821 /* CategoryList+Extensions.swift in Sources */,
 				F448CEB125D960490007C821 /* Category+Helper.swift in Sources */,
+				F41AE46625D969F5003E4B1E /* NewCategorySheet+Extensions.swift in Sources */,
 				F448CE6E25D95B450007C821 /* Contacts.xcdatamodeld in Sources */,
 				F448CE6B25D95B450007C821 /* Persistence.swift in Sources */,
+				F41AE4A025D9A3C9003E4B1E /* CategoryForm+Extensions.swift in Sources */,
+				F41AE46F25D96ACE003E4B1E /* CoreData+Helper.swift in Sources */,
+				F41AE46125D969DF003E4B1E /* NewCategorySheet.swift in Sources */,
 				F448CE6225D95B440007C821 /* ContactsApp.swift in Sources */,
+				F41AE48D25D997DC003E4B1E /* Date+Helper.swift in Sources */,
+				F41AE48325D99695003E4B1E /* CategoryForm.swift in Sources */,
 				F448CE9825D95CE50007C821 /* MainTabView.swift in Sources */,
 				F448CE9D25D95D0B0007C821 /* ContactList.swift in Sources */,
 				F448CEA225D95D1E0007C821 /* CategoryList.swift in Sources */,
+				F41AE48825D997C2003E4B1E /* Contact+Helper.swift in Sources */,
+				F41AE47825D96B21003E4B1E /* Color+Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

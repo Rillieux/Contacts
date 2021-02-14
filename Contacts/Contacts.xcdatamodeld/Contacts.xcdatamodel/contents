@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="colorAsHex" optional="YES" attributeType="String"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
         <attribute name="sortOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="category" inverseEntity="Contact"/>
+    </entity>
+    <entity name="Contact" representedClassName="Contact" syncable="YES" codeGenerationType="class">
+        <attribute name="birthdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="firstName_" optional="YES" attributeType="String"/>
+        <attribute name="lastName_" optional="YES" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="contacts" inverseEntity="Category"/>
     </entity>
     <elements>
-        <element name="Category" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Category" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Contact" positionX="-63" positionY="9" width="128" height="103"/>
     </elements>
 </model>
