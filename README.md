@@ -1,8 +1,5 @@
 # Contacts
 
-<img align="right" src="https://github.com/Rillieux/Contacts/blob/main/screens/categories.png" width="30%">
-
-
 > :warning: THIS IS A WORK IN PROCESS WHICH IS ONLY BEGINNING. Stay tuned??
 
 Contacts is an example of SwiftUI life-cycle application using CoreData and MVVM Architecture.
@@ -23,6 +20,7 @@ A contact may also have one or more contactImages which will make use of the `Ph
 
 Each `category` will have a `name`, `color` and `sortOrder`. Color will show how to use the `ColorPicker` and save a color using a `ColorToHex` function. SortORder wil be used to allow the user to rearrange items in a list when in `EditMode` saving them in an order that may not be as straightforward as alphabetically or chronologically.
 
-<img align="left" src="https://github.com/Rillieux/Contacts/blob/main/screens/singleCategory.png" width="25%">
-<img src="https://github.com/Rillieux/Contacts/blob/main/screens/editView.png" width="25%">
-<img align="right" src="https://github.com/Rillieux/Contacts/blob/main/screens/colorPicker.png" width="25%">
+<img align="left" src="https://github.com/Rillieux/Contacts/blob/main/screens/categories.png" width="30%">
+<img src="https://github.com/Rillieux/Contacts/blob/main/screens/singleCategory.png" width="33%">
+<img align="left" src="https://github.com/Rillieux/Contacts/blob/main/screens/editView.png" width="33%">
+<img src="https://github.com/Rillieux/Contacts/blob/main/screens/colorPicker.png" width="33%">
