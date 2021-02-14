@@ -13,7 +13,9 @@ As it grows, the project will include these CoreData entities:
 
 - :scroll: Category
 
-Each `contact` will have the following properties: `firstName`, `lastName`, and `birthdate`. These properties will be reflected in compueted properties to show how to avoid handling optionals in SwiftUI view structs. In addition, each contact can be assigned to one category or to none, allowing an example of `.none` employing a `Picker` in a form view, as explained in Standford University's course CS193p, lectures 11 and 12. A contact may also have one or more contactImages which will make use of the `PhotoSelectAndCrop` project found here: https://github.com/Rillieux/PhotoSelectAndCrop. The ContactImage entity will show how to use CoreData's "external storage" for large BLOB data. 
+Each `contact` will have the following properties: `firstName`, `lastName`, and `birthdate`. These properties will be reflected in compueted properties to show how to avoid handling optionals in SwiftUI view structs. In addition, each contact can be assigned to one category or to none, allowing an example of `.none` employing a `Picker` in a form view, as explained in Standford University's course CS193p, lectures 11 and 12, found here: https://cs193p.sites.stanford.edu/.
+
+A contact may also have one or more contactImages which will make use of the `PhotoSelectAndCrop` project found here: https://github.com/Rillieux/PhotoSelectAndCrop. The ContactImage entity will show how to use CoreData's "external storage" for large BLOB data. 
 
 Each `category` will have a `name`, `color` and `sortOrder`. Color will show how to use the `ColorPicker` and save a color using a `ColorToHex` function. SortORder wil be used to allow the user to rearrange items in a list when in `EditMode` saving them in an order that may not be as straightforward as alphabetically or chronologically.
 
