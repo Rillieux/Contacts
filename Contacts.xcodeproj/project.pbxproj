@@ -17,6 +17,8 @@
 		F448CE9825D95CE50007C821 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F448CE9725D95CE50007C821 /* MainTabView.swift */; };
 		F448CE9D25D95D0B0007C821 /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F448CE9C25D95D0B0007C821 /* ContactList.swift */; };
 		F448CEA225D95D1E0007C821 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F448CEA125D95D1E0007C821 /* CategoryList.swift */; };
+		F448CEA725D95E6A0007C821 /* CategoryList+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F448CEA625D95E6A0007C821 /* CategoryList+Extensions.swift */; };
+		F448CEB125D960490007C821 /* Category+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F448CEB025D960490007C821 /* Category+Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		F448CE9725D95CE50007C821 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		F448CE9C25D95D0B0007C821 /* ContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
 		F448CEA125D95D1E0007C821 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		F448CEA625D95E6A0007C821 /* CategoryList+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryList+Extensions.swift"; sourceTree = "<group>"; };
+		F448CEB025D960490007C821 /* Category+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +109,9 @@
 			children = (
 				F448CE6125D95B440007C821 /* ContactsApp.swift */,
 				F448CE9725D95CE50007C821 /* MainTabView.swift */,
-				F448CEA125D95D1E0007C821 /* CategoryList.swift */,
-				F448CE9C25D95D0B0007C821 /* ContactList.swift */,
+				F448CEAB25D960040007C821 /* Categories */,
+				F448CEAF25D960150007C821 /* Contacts */,
+				F448CEB825D960560007C821 /* ModelExtensions */,
 				F448CE6525D95B450007C821 /* Assets.xcassets */,
 				F448CE6A25D95B450007C821 /* Persistence.swift */,
 				F448CE6F25D95B450007C821 /* Info.plist */,
@@ -140,6 +145,31 @@
 				F448CE8525D95B460007C821 /* Info.plist */,
 			);
 			path = ContactsUITests;
+			sourceTree = "<group>";
+		};
+		F448CEAB25D960040007C821 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F448CEA125D95D1E0007C821 /* CategoryList.swift */,
+				F448CEA625D95E6A0007C821 /* CategoryList+Extensions.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		F448CEAF25D960150007C821 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				F448CE9C25D95D0B0007C821 /* ContactList.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		F448CEB825D960560007C821 /* ModelExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				F448CEB025D960490007C821 /* Category+Helper.swift */,
+			);
+			path = ModelExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +301,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F448CEA725D95E6A0007C821 /* CategoryList+Extensions.swift in Sources */,
+				F448CEB125D960490007C821 /* Category+Helper.swift in Sources */,
 				F448CE6E25D95B450007C821 /* Contacts.xcdatamodeld in Sources */,
 				F448CE6B25D95B450007C821 /* Persistence.swift in Sources */,
 				F448CE6225D95B440007C821 /* ContactsApp.swift in Sources */,
