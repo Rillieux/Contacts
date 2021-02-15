@@ -6,15 +6,11 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct NewCategorySheet: View {
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel: NewCategorySheet.ViewModel
-    
-    @State private var name = ""
-    @State private var color: UIColor = .gray
     
     let sortOrder: Int
     
@@ -27,52 +23,66 @@ struct NewCategorySheet: View {
     var body: some View {
         
         let colorBinding = Binding(
-            get: { Color((self.color)) },
-            set: { self.color = UIColor($0) }
+            get: { Color((viewModel.color)) },
+            set: { viewModel.color = UIColor($0) }
         )
         
         NavigationView {
             VStack{
                 HStack {
-                    Button(
-                        action: self.dismissAction,
-                        label: { Text("Cancel") }
-                        )
+                    cancelButton
                     Spacer()
                     addCategoryButton
                 }
-                .foregroundColor(.accentColor)
+                .foregroundColor(Color("AccentColor"))
                 .padding(.horizontal)
                 .padding(.top)
                 List {
-                    TextField("Name", text: $name)
+                    TextField("Name", text: $viewModel.name)
                     HStack {
                         Circle()
                             .frame(width: radius, height: radius)
-                            .foregroundColor(Color(color))
+                            .foregroundColor(Color(viewModel.color))
                         ColorPicker("", selection: colorBinding)
                     }
                 }
                 .listStyle(GroupedListStyle())
             }
             .navigationBarHidden(true)
+            .alert(
+                isPresented: $errorAlertIsPresented,
+                content: { Alert(title: Text(errorAlertTitle)) })
+
         }
+    }
+    
+    private var cancelButton: some View {
+        Button(
+            action: self.dismissAction,
+            label: { Text("Cancel") }
+        )
+        
     }
     
     private var addCategoryButton: some View {
         Button(
             action: {
-                viewModel.addCategory(name: name, color: color, sortOrder: sortOrder)
-                dismissAction()
+                
+                do {
+                    try viewModel.addCategory(sortOrder: sortOrder)
+                    dismissAction()
+                } catch {
+                    errorAlertTitle = (error as? LocalizedError)?.errorDescription ?? "An error occurred"
+                    errorAlertIsPresented = true
+                }
             },
             label: { Text("Save") })
     }
 }
-
-
 
 struct NewCategorySheet_Previews: PreviewProvider {
     static var previews: some View {
         NewCategorySheet(viewModel: NewCategorySheet.ViewModel(), sortOrder: 100, dismissAction:{})
     }
 }
+

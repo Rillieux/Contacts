@@ -11,6 +11,8 @@ struct CategoryList: View {
     @StateObject var viewModel: CategoryList.ViewModel
     @State private var newName: String = ""
     
+    ///This approach to the viewModel as an extension of the view was applied from
+    ///Kilo Loco's Youtube tutorial that can be found here: https://www.youtube.com/watch?v=bdqEcpppAMc
     init(viewModel: CategoryList.ViewModel = .init()) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -31,7 +33,7 @@ struct CategoryList: View {
                                 .frame(width: dotDiameter, height: dotDiameter)
                             HStack (alignment: .firstTextBaseline) {
                                 Text("\(category.name)")
-                                Text("Sort order: \(category.sortOrder)").font(.caption).foregroundColor(.gray)
+                                Text("(Sort order: \(category.sortOrder))").font(.caption).foregroundColor(.gray)
                             }
                         }
                     }
@@ -43,7 +45,7 @@ struct CategoryList: View {
                     viewModel.deleteCategories(offsets: indexSet)
                 })
             }
-            .listStyle(GroupedListStyle())
+            .listStyle(PlainListStyle())
             .onAppear(perform: viewModel.updateCategories)
             .navigationTitle("Categories")
             .navigationBarItems(trailing: HStack {
@@ -68,6 +70,8 @@ struct CategoryList: View {
     
     /// The category creation sheet.
     private var newCategorySheet: some View {
+        ///When we add a new category, we want it to initially show up last int he list.
+        ///To achieve this, we get the count of the categories and send that Int to the NewCategoryheet.
         NewCategorySheet(viewModel: NewCategorySheet.ViewModel(), sortOrder: viewModel.categories.count, dismissAction: {
             self.showingNewCategorySheet = false
             viewModel.updateCategories()

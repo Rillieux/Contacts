@@ -62,11 +62,8 @@ extension CategoryForm {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 
             }
-
         }
-        
-        
-        
-        let s = 100
     }
 }
+
+

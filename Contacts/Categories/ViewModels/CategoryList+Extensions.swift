@@ -44,8 +44,8 @@ extension CategoryList {
             }
         }
         
-        ///The following function saves the order of the categories based on the user's
-        ///moving them in edit mode on the list.
+        ///The following function saves the order of the categories based on the user's moving them in edit mode on the list.
+        ///Sourced StackOverflow in an answer by Bill Nattaner: https://stackoverflow.com/questions/59742218/swiftui-reorder-coredata-objects-in-list
         func moveCategories( from source: IndexSet, to destination: Int) {
             print("MOVING CATEGORIES")
             // Make an array of items from fetched results

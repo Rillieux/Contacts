@@ -2,14 +2,19 @@
 //  CategoryForm.swift
 //  Contact
 //
-//  Created by Dave Kondris on 23/01/21.
+//  Created by Dave Kondris on 14/02/21.
 //
 
+import CoreData // needed for preview
 import SwiftUI
 
 struct CategoryForm: View {
 
     @StateObject var viewModel: CategoryForm.ViewModel
+    
+    init(viewModel: CategoryForm.ViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     @State private var isEditing = false
     
@@ -32,7 +37,6 @@ struct CategoryForm: View {
                         HStack{
                             Circle()
                                 .frame(width: radius, height: radius)
-                                ///Because we init myColor above, we can show the category.color passing through mycolor.
                                 .foregroundColor(Color(viewModel.color))
                             Spacer()
                         }
@@ -66,7 +70,6 @@ struct CategoryForm: View {
                         Circle()
                             .frame(width: radius, height: radius)
                             .foregroundColor(Color(viewModel.color))
-                        Spacer()
                         ColorPicker("", selection: colorBinding)
                     }
                 }
@@ -101,3 +104,9 @@ struct CategoryForm: View {
             content: { Alert(title: Text(errorAlertTitle)) }) }
     
 }
+
+//struct CategoryForm_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryForm(viewModel: CategoryForm.ViewModel(category: category))
+//    }
+//}
