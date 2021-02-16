@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F41906A525DBEDEB00D4CD75 /* ContactList+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906A425DBEDEB00D4CD75 /* ContactList+Extensions.swift */; };
+		F41906AF25DBEF3D00D4CD75 /* ContactProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906AE25DBEF3D00D4CD75 /* ContactProfile.swift */; };
+		F41906B025DBEF3D00D4CD75 /* NewContactSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906AD25DBEF3D00D4CD75 /* NewContactSheet.swift */; };
+		F41906B525DBEF7700D4CD75 /* ContactImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906B425DBEF7700D4CD75 /* ContactImage+Helper.swift */; };
+		F41906BD25DBEF9400D4CD75 /* ImageMoveAndScaleSheet+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906BA25DBEF9400D4CD75 /* ImageMoveAndScaleSheet+Extensions.swift */; };
+		F41906BE25DBEF9400D4CD75 /* ImageManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906BC25DBEF9400D4CD75 /* ImageManipulation.swift */; };
+		F41906BF25DBEF9400D4CD75 /* SystemImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906B925DBEF9400D4CD75 /* SystemImagePicker.swift */; };
+		F41906C025DBEF9400D4CD75 /* ImageMoveAndScaleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906BB25DBEF9400D4CD75 /* ImageMoveAndScaleSheet.swift */; };
+		F41906C925DBEFD200D4CD75 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906C825DBEFD200D4CD75 /* DeviceOrientation.swift */; };
+		F41906CE25DBEFE100D4CD75 /* Bindings+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906CD25DBEFE100D4CD75 /* Bindings+Helper.swift */; };
 		F41AE46125D969DF003E4B1E /* NewCategorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE46025D969DF003E4B1E /* NewCategorySheet.swift */; };
 		F41AE46625D969F5003E4B1E /* NewCategorySheet+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE46525D969F5003E4B1E /* NewCategorySheet+Extensions.swift */; };
 		F41AE46F25D96ACE003E4B1E /* CoreData+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE46E25D96ACE003E4B1E /* CoreData+Helper.swift */; };
@@ -47,6 +57,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F41906A425DBEDEB00D4CD75 /* ContactList+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactList+Extensions.swift"; sourceTree = "<group>"; };
+		F41906AD25DBEF3D00D4CD75 /* NewContactSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactSheet.swift; sourceTree = "<group>"; };
+		F41906AE25DBEF3D00D4CD75 /* ContactProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactProfile.swift; sourceTree = "<group>"; };
+		F41906B425DBEF7700D4CD75 /* ContactImage+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactImage+Helper.swift"; sourceTree = "<group>"; };
+		F41906B925DBEF9400D4CD75 /* SystemImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImagePicker.swift; sourceTree = "<group>"; };
+		F41906BA25DBEF9400D4CD75 /* ImageMoveAndScaleSheet+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageMoveAndScaleSheet+Extensions.swift"; sourceTree = "<group>"; };
+		F41906BB25DBEF9400D4CD75 /* ImageMoveAndScaleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMoveAndScaleSheet.swift; sourceTree = "<group>"; };
+		F41906BC25DBEF9400D4CD75 /* ImageManipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManipulation.swift; sourceTree = "<group>"; };
+		F41906C825DBEFD200D4CD75 /* DeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientation.swift; sourceTree = "<group>"; };
+		F41906CD25DBEFE100D4CD75 /* Bindings+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bindings+Helper.swift"; sourceTree = "<group>"; };
 		F41AE46025D969DF003E4B1E /* NewCategorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategorySheet.swift; sourceTree = "<group>"; };
 		F41AE46525D969F5003E4B1E /* NewCategorySheet+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewCategorySheet+Extensions.swift"; sourceTree = "<group>"; };
 		F41AE46E25D96ACE003E4B1E /* CoreData+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Helper.swift"; sourceTree = "<group>"; };
@@ -100,6 +120,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F41906A925DBEDEF00D4CD75 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F41906A425DBEDEB00D4CD75 /* ContactList+Extensions.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F41906C425DBEFA800D4CD75 /* ImageSelection */ = {
+			isa = PBXGroup;
+			children = (
+				F41906BC25DBEF9400D4CD75 /* ImageManipulation.swift */,
+				F41906BB25DBEF9400D4CD75 /* ImageMoveAndScaleSheet.swift */,
+				F41906BA25DBEF9400D4CD75 /* ImageMoveAndScaleSheet+Extensions.swift */,
+				F41906B925DBEF9400D4CD75 /* SystemImagePicker.swift */,
+			);
+			path = ImageSelection;
+			sourceTree = "<group>";
+		};
 		F41AE46A25D96A00003E4B1E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,9 +152,12 @@
 		F41AE47325D96AD1003E4B1E /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				F41906C425DBEFA800D4CD75 /* ImageSelection */,
+				F41906CD25DBEFE100D4CD75 /* Bindings+Helper.swift */,
 				F41AE47725D96B21003E4B1E /* Color+Helper.swift */,
 				F41AE46E25D96ACE003E4B1E /* CoreData+Helper.swift */,
 				F41AE48C25D997DC003E4B1E /* Date+Helper.swift */,
+				F41906C825DBEFD200D4CD75 /* DeviceOrientation.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -145,8 +187,8 @@
 			children = (
 				F448CE6125D95B440007C821 /* ContactsApp.swift */,
 				F448CE9725D95CE50007C821 /* MainTabView.swift */,
-				F448CEAB25D960040007C821 /* Categories */,
 				F448CEAF25D960150007C821 /* Contacts */,
+				F448CEAB25D960040007C821 /* Categories */,
 				F448CEB825D960560007C821 /* ModelExtensions */,
 				F448CE6525D95B450007C821 /* Assets.xcassets */,
 				F448CE6A25D95B450007C821 /* Persistence.swift */,
@@ -199,6 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				F448CE9C25D95D0B0007C821 /* ContactList.swift */,
+				F41906AE25DBEF3D00D4CD75 /* ContactProfile.swift */,
+				F41906AD25DBEF3D00D4CD75 /* NewContactSheet.swift */,
+				F41906A925DBEDEF00D4CD75 /* ViewModels */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -207,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				F41AE48725D997C2003E4B1E /* Contact+Helper.swift */,
+				F41906B425DBEF7700D4CD75 /* ContactImage+Helper.swift */,
 				F448CEB025D960490007C821 /* Category+Helper.swift */,
 			);
 			path = ModelExtensions;
@@ -343,19 +389,29 @@
 			files = (
 				F448CEA725D95E6A0007C821 /* CategoryList+Extensions.swift in Sources */,
 				F448CEB125D960490007C821 /* Category+Helper.swift in Sources */,
+				F41906AF25DBEF3D00D4CD75 /* ContactProfile.swift in Sources */,
 				F41AE46625D969F5003E4B1E /* NewCategorySheet+Extensions.swift in Sources */,
+				F41906BF25DBEF9400D4CD75 /* SystemImagePicker.swift in Sources */,
+				F41906C925DBEFD200D4CD75 /* DeviceOrientation.swift in Sources */,
+				F41906C025DBEF9400D4CD75 /* ImageMoveAndScaleSheet.swift in Sources */,
+				F41906CE25DBEFE100D4CD75 /* Bindings+Helper.swift in Sources */,
 				F448CE6E25D95B450007C821 /* Contacts.xcdatamodeld in Sources */,
 				F448CE6B25D95B450007C821 /* Persistence.swift in Sources */,
 				F41AE4A025D9A3C9003E4B1E /* CategoryForm+Extensions.swift in Sources */,
+				F41906A525DBEDEB00D4CD75 /* ContactList+Extensions.swift in Sources */,
 				F41AE46F25D96ACE003E4B1E /* CoreData+Helper.swift in Sources */,
+				F41906B025DBEF3D00D4CD75 /* NewContactSheet.swift in Sources */,
 				F41AE46125D969DF003E4B1E /* NewCategorySheet.swift in Sources */,
 				F448CE6225D95B440007C821 /* ContactsApp.swift in Sources */,
+				F41906BE25DBEF9400D4CD75 /* ImageManipulation.swift in Sources */,
 				F41AE48D25D997DC003E4B1E /* Date+Helper.swift in Sources */,
 				F41AE48325D99695003E4B1E /* CategoryForm.swift in Sources */,
+				F41906B525DBEF7700D4CD75 /* ContactImage+Helper.swift in Sources */,
 				F448CE9825D95CE50007C821 /* MainTabView.swift in Sources */,
 				F448CE9D25D95D0B0007C821 /* ContactList.swift in Sources */,
 				F448CEA225D95D1E0007C821 /* CategoryList.swift in Sources */,
 				F41AE48825D997C2003E4B1E /* Contact+Helper.swift in Sources */,
+				F41906BD25DBEF9400D4CD75 /* ImageMoveAndScaleSheet+Extensions.swift in Sources */,
 				F41AE47825D96B21003E4B1E /* Color+Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

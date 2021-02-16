@@ -14,7 +14,7 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         
-        for i in 0..<6 {
+        for i in 0..<16 {
             
             let names = ["Avenir", "Espoir", "Junior", "Senior"]
             

@@ -11,9 +11,19 @@
         <attribute name="firstName_" optional="YES" attributeType="String"/>
         <attribute name="lastName_" optional="YES" attributeType="String"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="contacts" inverseEntity="Category"/>
+        <relationship name="picture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContactImage" inverseName="contact" inverseEntity="ContactImage"/>
+    </entity>
+    <entity name="ContactImage" representedClassName="ContactImage" syncable="YES" codeGenerationType="class">
+        <attribute name="image_" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="originalImage_" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="scale_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="xWidth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="yHeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="picture" inverseEntity="Contact"/>
     </entity>
     <elements>
         <element name="Category" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Contact" positionX="-63" positionY="9" width="128" height="103"/>
+        <element name="Contact" positionX="-63" positionY="9" width="128" height="118"/>
+        <element name="ContactImage" positionX="-54" positionY="36" width="128" height="133"/>
     </elements>
 </model>
