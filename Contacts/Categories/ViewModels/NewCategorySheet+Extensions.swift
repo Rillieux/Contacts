@@ -10,7 +10,6 @@ import CoreData
 import UIKit
 
 extension NewCategorySheet {
-    
     class ViewModel: ObservableObject {
         
         ///We create the name and color here, but we get the Int for

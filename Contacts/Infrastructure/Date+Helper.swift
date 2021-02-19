@@ -14,6 +14,12 @@ let dobFormatter: DateFormatter = {
     return formatter
 }()
 
+func defaultBirthDate(years: Int) -> Date {
+    //Default birthdate, uelful so the user does not have to click so much to geet to a data close to the desired birthdate.
+    ///Offset the deafult date by minus 14 years.
+    let defaultDOB: Date = Calendar.current.date(byAdding: DateComponents(year: -years), to: Date()) ?? Date()
+    return defaultDOB
+}
 
 class AppDateFormatter {
     static let shared = AppDateFormatter()

@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ContactList: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Contact.lastName_, ascending: true)],
-                  animation: .default) private var contacts: FetchedResults<Contact>
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Category.name_, ascending: true)],
-                  animation: .default) private var categories: FetchedResults<Category>
+    @StateObject var viewModel: ContactList.ViewModel
+    
+    
+    
+    init(viewModel: ContactList.ViewModel = .init()) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     @State var showingNewContactSheet = false
     
@@ -20,32 +22,31 @@ struct ContactList: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(contacts) { contact in
+                    ForEach(viewModel.contacts) { contact in
                         NavigationLink (
-                            destination: ContactProfile(contact: contact)) {
+                            destination: ContactProfile(viewModel: ContactProfile.ViewModel(contact: contact))) {
                             HStack (alignment: .firstTextBaseline) {
                                 Text("\(contact.firstName) \(contact.lastName)")
                                 Text("\(contact.category?.name ?? "")").font(.caption).foregroundColor(.gray)
                             }
                         }
                     }
-                    .onDelete(perform: withAnimation { deleteContacts } )
-                    
+                    .onDelete(perform: { indexSet in
+                        viewModel.deleteContacts(offsets: indexSet)
+                    })
                 }
+                .listStyle(PlainListStyle())
+                .onAppear(perform: viewModel.updateContacts)
+                .navigationTitle("Contacts")
             }
-            .listStyle(PlainListStyle())
-            .navigationTitle("Contacts")
-            .navigationBarItems(trailing:
-                                    HStack {
-                                        EditButton()
-                                        addContactButton
-                                    }
+            .navigationBarItems(trailing: HStack {
+                EditButton()
+                addContactButton
+            }
             )
-            
         }
     }
     
-    /// The button that presents the contact creation sheet.
     private var addContactButton: some View {
         Button(
             action: {
@@ -57,26 +58,13 @@ struct ContactList: View {
                 content: { self.newContactSheet })
     }
     
-    /// The athlete creation sheet.
+    /// The contact creation sheet.
     private var newContactSheet: some View {
-        NewContactSheet(
-            dismissAction: {
-                self.showingNewContactSheet = false
-            })
-    }
-    
-    private func deleteContacts(offsets: IndexSet) {
-        offsets.map { contacts[$0] }.forEach(viewContext.delete)
-        saveContext()
-    }
-    
-    private func saveContext() {
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        NewContactSheet(viewModel: NewContactSheet.ViewModel(), dismissAction: {
+            self.showingNewContactSheet = false
+            viewModel.updateContacts()
         }
+        )
     }
 }
 

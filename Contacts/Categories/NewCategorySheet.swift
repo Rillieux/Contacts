@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewCategorySheet: View {
+    
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel: NewCategorySheet.ViewModel
@@ -52,7 +53,7 @@ struct NewCategorySheet: View {
             .alert(
                 isPresented: $errorAlertIsPresented,
                 content: { Alert(title: Text(errorAlertTitle)) })
-
+            
         }
     }
     
@@ -67,7 +68,6 @@ struct NewCategorySheet: View {
     private var addCategoryButton: some View {
         Button(
             action: {
-                
                 do {
                     try viewModel.addCategory(sortOrder: sortOrder)
                     dismissAction()

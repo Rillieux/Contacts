@@ -17,6 +17,8 @@
 		F41906C025DBEF9400D4CD75 /* ImageMoveAndScaleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906BB25DBEF9400D4CD75 /* ImageMoveAndScaleSheet.swift */; };
 		F41906C925DBEFD200D4CD75 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906C825DBEFD200D4CD75 /* DeviceOrientation.swift */; };
 		F41906CE25DBEFE100D4CD75 /* Bindings+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906CD25DBEFE100D4CD75 /* Bindings+Helper.swift */; };
+		F41906D625DC08F700D4CD75 /* ContactProfile+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906D525DC08F700D4CD75 /* ContactProfile+Extensions.swift */; };
+		F41906DB25DC090600D4CD75 /* NewContactSheet+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906DA25DC090600D4CD75 /* NewContactSheet+Extensions.swift */; };
 		F41AE46125D969DF003E4B1E /* NewCategorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE46025D969DF003E4B1E /* NewCategorySheet.swift */; };
 		F41AE46625D969F5003E4B1E /* NewCategorySheet+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE46525D969F5003E4B1E /* NewCategorySheet+Extensions.swift */; };
 		F41AE46F25D96ACE003E4B1E /* CoreData+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE46E25D96ACE003E4B1E /* CoreData+Helper.swift */; };
@@ -67,6 +69,8 @@
 		F41906BC25DBEF9400D4CD75 /* ImageManipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManipulation.swift; sourceTree = "<group>"; };
 		F41906C825DBEFD200D4CD75 /* DeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientation.swift; sourceTree = "<group>"; };
 		F41906CD25DBEFE100D4CD75 /* Bindings+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bindings+Helper.swift"; sourceTree = "<group>"; };
+		F41906D525DC08F700D4CD75 /* ContactProfile+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactProfile+Extensions.swift"; sourceTree = "<group>"; };
+		F41906DA25DC090600D4CD75 /* NewContactSheet+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewContactSheet+Extensions.swift"; sourceTree = "<group>"; };
 		F41AE46025D969DF003E4B1E /* NewCategorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategorySheet.swift; sourceTree = "<group>"; };
 		F41AE46525D969F5003E4B1E /* NewCategorySheet+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewCategorySheet+Extensions.swift"; sourceTree = "<group>"; };
 		F41AE46E25D96ACE003E4B1E /* CoreData+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Helper.swift"; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				F41906A425DBEDEB00D4CD75 /* ContactList+Extensions.swift */,
+				F41906D525DC08F700D4CD75 /* ContactProfile+Extensions.swift */,
+				F41906DA25DC090600D4CD75 /* NewContactSheet+Extensions.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -143,8 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				F448CEA625D95E6A0007C821 /* CategoryList+Extensions.swift */,
-				F41AE46525D969F5003E4B1E /* NewCategorySheet+Extensions.swift */,
 				F41AE49F25D9A3C9003E4B1E /* CategoryForm+Extensions.swift */,
+				F41AE46525D969F5003E4B1E /* NewCategorySheet+Extensions.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -394,12 +400,14 @@
 				F41906BF25DBEF9400D4CD75 /* SystemImagePicker.swift in Sources */,
 				F41906C925DBEFD200D4CD75 /* DeviceOrientation.swift in Sources */,
 				F41906C025DBEF9400D4CD75 /* ImageMoveAndScaleSheet.swift in Sources */,
+				F41906D625DC08F700D4CD75 /* ContactProfile+Extensions.swift in Sources */,
 				F41906CE25DBEFE100D4CD75 /* Bindings+Helper.swift in Sources */,
 				F448CE6E25D95B450007C821 /* Contacts.xcdatamodeld in Sources */,
 				F448CE6B25D95B450007C821 /* Persistence.swift in Sources */,
 				F41AE4A025D9A3C9003E4B1E /* CategoryForm+Extensions.swift in Sources */,
 				F41906A525DBEDEB00D4CD75 /* ContactList+Extensions.swift in Sources */,
 				F41AE46F25D96ACE003E4B1E /* CoreData+Helper.swift in Sources */,
+				F41906DB25DC090600D4CD75 /* NewContactSheet+Extensions.swift in Sources */,
 				F41906B025DBEF3D00D4CD75 /* NewContactSheet.swift in Sources */,
 				F41AE46125D969DF003E4B1E /* NewCategorySheet.swift in Sources */,
 				F448CE6225D95B440007C821 /* ContactsApp.swift in Sources */,
