@@ -11,9 +11,7 @@ extension Color {
     static let accentColor = Color("AccentColor")
 }
 
-///https://cocoacasts.com/how-to-store-uicolor-in-core-data-persistent-store
-///with some adjustments as found here: https://stackoverflow.com/questions/57870527/scanhexint32-was-deprecated-in-ios-13-0
-///See Daniel Storm's answer: "Update to use UInt64 and scanHexInt64:"
+
 extension UIColor {
     
     // MARK: - Initialization
@@ -52,6 +50,12 @@ extension UIColor {
         self.init(red: r, green: g, blue: b, alpha: a)
     }
     
+    ///This computed variable transforms a UIColor into a hex String.
+    ///
+    ///See:[Cocoacasts.com](https://cocoacasts.com/how-to-store-uicolor-in-core-data-persistent-store)
+    ///
+    ///Additional adjustments as found on [StackOVerflow](https://stackoverflow.com/questions/57870527/scanhexint32-was-deprecated-in-ios-13-0)
+    /// - Note: See Daniel Storm's answer: "Update to use UInt64 and scanHexInt64:"
     var toHex: String? {
         //        print("toHex: String?")
         

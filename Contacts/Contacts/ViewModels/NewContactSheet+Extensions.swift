@@ -12,9 +12,8 @@ import UIKit
 extension NewContactSheet {
     class ViewModel: ObservableObject {
         
-        ///We create the name and color here, but we get the Int for
-        ///the sortOrder from the `private var newCategorySheet`
-        ///in the CategoryList view.
+        //We create the first and last namehere, but will leave the
+        //date optional
         
         @Published var firstName = ""
         @Published var lastName = ""

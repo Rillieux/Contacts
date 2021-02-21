@@ -15,11 +15,17 @@ let dobFormatter: DateFormatter = {
 }()
 
 
-///Swift function using a default parameter
-///https://www.hackingwithswift.com/sixty/5/6/default-parameters
+///Default birthdate, useful so the user does not have to click so much to geet to a data close to the desired birthdate.
+///Offset the deafult date by minus 14 years.
+///
+/// - Parameter years: the age in years which we subtract from today.
+///
+/// - Returns: a date "n" years in the past.
+///
+///For more on Swift functions using a default parameter, see:
+///[https://www.hackingwithswift.com/sixty/5/6/default-parameters](https://www.hackingwithswift.com/sixty/5/6/default-parameters)
+
 func defaultBirthDate(years: Int = 14) -> Date {
-    //Default birthdate, uelful so the user does not have to click so much to geet to a data close to the desired birthdate.
-    ///Offset the deafult date by minus 14 years.
     let defaultDOB: Date = Calendar.current.date(byAdding: DateComponents(year: -years), to: Date()) ?? Date()
     return defaultDOB
 }
@@ -70,6 +76,10 @@ class AppDateFormatter {
 }
 
 extension Date {
+    ///Returns a string answering "How many years and months ago was this event / date" from a Date.
+    ///
+    ///The variable `years` gets the number of whole years since the Date. The variable months shows
+    ///the number of whole months left over.
     var ageInYearsAndMonths: String {
         var years: Int { Calendar.current.dateComponents([.year], from: self, to: Date()).year! }
         var months: Int { Calendar.current.dateComponents([.month], from: self, to: Date()).month! }

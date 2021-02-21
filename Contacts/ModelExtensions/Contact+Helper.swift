@@ -38,6 +38,10 @@ extension Contact {
         }
     }
     
+    ///This returns the first letters of the firstNAme and lastName
+    ///attributes of the Contact entity.
+    ///
+    ///For example, "George Washington" would have the initials "GW"
     var initials: String {
         let firstInitial = String(firstName.prefix(1))
         let lastInitial = String(lastName.prefix(1))
