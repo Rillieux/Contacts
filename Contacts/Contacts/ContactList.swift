@@ -27,7 +27,7 @@ struct ContactList: View {
                             destination: ContactProfile(viewModel: ContactProfile.ViewModel(contact: contact))) {
                             HStack (alignment: .firstTextBaseline) {
                                 Text("\(contact.firstName) \(contact.lastName)")
-                                Text("\(contact.category?.name ?? "")").font(.caption).foregroundColor(.gray)
+                                Text("\(contact.level?.name ?? "")").font(.caption).foregroundColor(.gray)
                             }
                         }
                     }

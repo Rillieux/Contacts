@@ -18,10 +18,10 @@ struct PersistenceController {
             
             let names = ["Avenir", "Espoir", "Junior", "Senior"]
             
-            let newCategory = Category(context: viewContext)
-            newCategory.name_ = names.randomElement()
-            newCategory.colorAsHex = "x45ee0a"
-            newCategory.sortOrder = Int16(i)
+            let newLevel = Level(context: viewContext)
+            newLevel.name_ = names.randomElement()
+            newLevel.colorAsHex = "x45ee0a"
+            newLevel.sortOrder = Int16(i)
         }
         
         do {

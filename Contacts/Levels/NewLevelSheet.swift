@@ -1,5 +1,5 @@
 //
-//  NewCategorySheet.swift
+//  NewLevelSheet.swift
 //  Contacts
 //
 //  Created by Dave Kondris on 14/02/21.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct NewCategorySheet: View {
+struct NewLevelSheet: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @StateObject var viewModel: NewCategorySheet.ViewModel
+    @StateObject var viewModel: NewLevelSheet.ViewModel
     
     let sortOrder: Int
     
@@ -33,7 +33,7 @@ struct NewCategorySheet: View {
                 HStack {
                     cancelButton
                     Spacer()
-                    addCategoryButton
+                    addLevelButton
                 }
                 .foregroundColor(Color("AccentColor"))
                 .padding(.horizontal)
@@ -65,11 +65,11 @@ struct NewCategorySheet: View {
         
     }
     
-    private var addCategoryButton: some View {
+    private var addLevelButton: some View {
         Button(
             action: {
                 do {
-                    try viewModel.addCategory(sortOrder: sortOrder)
+                    try viewModel.addLevel(sortOrder: sortOrder)
                     dismissAction()
                 } catch {
                     errorAlertTitle = (error as? LocalizedError)?.errorDescription ?? "An error occurred"
@@ -80,9 +80,9 @@ struct NewCategorySheet: View {
     }
 }
 
-struct NewCategorySheet_Previews: PreviewProvider {
+struct NewLevelSheet_Previews: PreviewProvider {
     static var previews: some View {
-        NewCategorySheet(viewModel: NewCategorySheet.ViewModel(), sortOrder: 100, dismissAction:{})
+        NewLevelSheet(viewModel: NewLevelSheet.ViewModel(), sortOrder: 100, dismissAction:{})
     }
 }
 

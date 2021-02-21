@@ -1,5 +1,5 @@
 //
-//  CategoryForm.swift
+//  LevelForm.swift
 //  Contact
 //
 //  Created by Dave Kondris on 14/02/21.
@@ -8,11 +8,11 @@
 import CoreData // needed for preview
 import SwiftUI
 
-struct CategoryForm: View {
+struct LevelForm: View {
 
-    @StateObject var viewModel: CategoryForm.ViewModel
+    @StateObject var viewModel: LevelForm.ViewModel
     
-    init(viewModel: CategoryForm.ViewModel) {
+    init(viewModel: LevelForm.ViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
@@ -89,7 +89,7 @@ struct CategoryForm: View {
                                 }),
                             trailing:
                                 Button (action: {
-                                    if isEditing { viewModel.saveCategory() }
+                                    if isEditing { viewModel.saveLevel() }
                                     withAnimation {
                                         if !errorAlertIsPresented {
                                             self.isEditing.toggle()
@@ -105,8 +105,8 @@ struct CategoryForm: View {
     
 }
 
-//struct CategoryForm_Previews: PreviewProvider {
+//struct LevelForm_Previews: PreviewProvider {
 //    static var previews: some View {
-//        CategoryForm(viewModel: CategoryForm.ViewModel(category: category))
+//        LevelForm(viewModel: LevelForm.ViewModel(level: level))
 //    }
 //}

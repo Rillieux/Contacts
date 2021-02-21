@@ -10,8 +10,8 @@ import CoreData
 import Combine
 
 extension Contact {
-    static func fetchRequest(_ predicate: NSPredicate) -> NSFetchRequest<Category> {
-        let request = NSFetchRequest<Category>(entityName: "Contact")
+    static func fetchRequest(_ predicate: NSPredicate) -> NSFetchRequest<Level> {
+        let request = NSFetchRequest<Level>(entityName: "Contact")
         request.sortDescriptors = [NSSortDescriptor(key: "lastName", ascending: true), NSSortDescriptor(key: "firstName", ascending: true)]
         request.predicate = predicate
         return request

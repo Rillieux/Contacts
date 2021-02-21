@@ -1,5 +1,5 @@
 //
-//  Category+Helper.swift
+//  Level+Helper.swift
 //  Contacts
 //
 //  Created by Dave Kondris on 14/02/21.
@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 import UIKit
 
-extension Category {
+extension Level {
     var name: String {
         get {
             return name_ ?? ""
@@ -30,10 +30,10 @@ extension Category {
     }
 }
 
-extension Category {
+extension Level {
     
-    static func fetchRequest(_ predicate: NSPredicate) -> NSFetchRequest<Category> {
-        let request = NSFetchRequest<Category>(entityName: "Category")
+    static func fetchRequest(_ predicate: NSPredicate) -> NSFetchRequest<Level> {
+        let request = NSFetchRequest<Level>(entityName: "Level")
         request.sortDescriptors = [NSSortDescriptor(key: "sortOrder", ascending: true)]
         request.predicate = predicate
         return request

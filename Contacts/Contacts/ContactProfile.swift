@@ -70,9 +70,9 @@ struct ContactProfile: View {
                     Text("\(viewModel.birthdate!, formatter: dobFormatter) - \(viewModel.contact.age ?? "")")
                 }
 //                HStack {
-//                    Circle().fill(Color((contact.category?.color ?? .gray)))
+//                    Circle().fill(Color((contact.level?.color ?? .gray)))
 //                        .frame(width: dotDiameter * 1.5, height: dotDiameter * 1.5)
-//                    Text("\(contact.category?.name ?? "Unassigned")")
+//                    Text("\(contact.level?.name ?? "Unassigned")")
 //                }
                 Spacer()
             } else {
@@ -83,18 +83,18 @@ struct ContactProfile: View {
 //                        Text( contact.birthdate != nil ? "Change birthdate" : "Pick birthdate" )
 //                    }
                     
-//                    Picker("Category", selection: $contact.category) {
-//                        ///We add this view so we can "nullify" a contact's category.
+//                    Picker("Level", selection: $contact.level) {
+//                        ///We add this view so we can "nullify" a contact's level.
 //                        ///See Stanford University's course CS193p, lectures 11 and 12:
 //                        ///https://cs193p.sites.stanford.edu/
-//                        Text("Unassigned").tag(Category?.none)
-//                        ForEach(categories) { (category: Category?) in
+//                        Text("Unassigned").tag(Level?.none)
+//                        ForEach(levels) { (level: Level?) in
 //                            HStack {
-//                                Circle().fill(Color((category?.color)!))
+//                                Circle().fill(Color((level?.color)!))
 //                                    .frame(width: dotDiameter, height: dotDiameter)
-//                                Text("\(category?.name ?? "Unassigned")")
+//                                Text("\(level?.name ?? "Unassigned")")
 //                            }
-//                            .tag(category)
+//                            .tag(level)
 //                        }
 //                    }
                 }

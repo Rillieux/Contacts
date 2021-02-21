@@ -17,11 +17,11 @@ struct MainTabView: View {
                         Text("Contacts")
                     }
                 }.tag(1)
-            CategoryList()
+            LevelList()
                 .tabItem{
                     VStack{
                         Image(systemName: "list.bullet")
-                        Text("Categories")
+                        Text("Levels")
                     }
                 }.tag(2)
         }

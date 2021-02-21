@@ -66,18 +66,18 @@ struct NewContactSheet: View {
                     }
                     .accentColor(.systemRed)
                     
-//                    Picker("Category", selection: $viewModel.category) {
-//                        ///We add this view so we can "nullify" a contact's category.
+//                    Picker("Level", selection: $viewModel.level) {
+//                        ///We add this view so we can "nullify" a contact's level.
 //                        ///See Stanford University's course CS193p, lectures 11 and 12:
 //                        ///https://cs193p.sites.stanford.edu/
-//                        Text("Unassigned").tag(Category?.none)
-//                        ForEach(viewModel.categories) { (category: viewModel.Category?) in
+//                        Text("Unassigned").tag(Level?.none)
+//                        ForEach(viewModel.levels) { (level: viewModel.Level?) in
 //                            HStack {
-//                                Circle().fill(Color((category?.color)!))
+//                                Circle().fill(Color((level?.color)!))
 //                                    .frame(width: dotDiameter, height: dotDiameter)
-//                                Text("\(category?.name ?? "Unassigned")")
+//                                Text("\(level?.name ?? "Unassigned")")
 //                            }
-//                            .tag(category)
+//                            .tag(level)
 //                        }
 //                        
 //                    }
