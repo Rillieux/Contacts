@@ -16,11 +16,9 @@ extension NewContactSheet {
         ///the sortOrder from the `private var newCategorySheet`
         ///in the CategoryList view.
         
-
-
         @Published var firstName = ""
         @Published var lastName = ""
-//        @Published var birthdate:Date = defaultDOB
+        @Published var birthdate: Date? = nil
 
         let context = PersistenceController.shared.container.viewContext
         
@@ -32,12 +30,16 @@ extension NewContactSheet {
             if self.lastName == "" {
                 throw ValidationError.missingLastName
             }
+            if self.birthdate == defaultBirthDate() {
+                throw ValidationError.checkBirthdate
+            }
+
 
             do {
                 let newContact = Contact(context: context)
                 newContact.firstName = firstName
                 newContact.lastName = lastName
-                
+                newContact.birthdate = birthdate
                 try context.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
@@ -49,12 +51,15 @@ extension NewContactSheet {
         enum ValidationError: LocalizedError {
             case missingFirstName
             case missingLastName
+            case checkBirthdate
             var errorDescription: String? {
                 switch self {
                     case .missingFirstName:
                         return "Please enter a first name for the contact."
                     case .missingLastName:
                         return "Please enter a last name for the contact."
+                    case .checkBirthdate:
+                        return "Please confirm the selected birthdate is correct."
                 }
             }
         }

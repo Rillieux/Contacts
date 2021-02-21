@@ -66,9 +66,9 @@ struct ContactProfile: View {
                 Text("\(viewModel.firstName) \(viewModel.lastName)")
                     .font(.largeTitle)
                     .padding(.top)
-//                if contact.birthdate != nil {
-//                    Text("\(contact.birthdate!, formatter: dobFormatter) - \(contact.age!)")
-//                }
+                if viewModel.birthdate != nil {
+                    Text("\(viewModel.birthdate!, formatter: dobFormatter) - \(viewModel.contact.age ?? "")")
+                }
 //                HStack {
 //                    Circle().fill(Color((contact.category?.color ?? .gray)))
 //                        .frame(width: dotDiameter * 1.5, height: dotDiameter * 1.5)

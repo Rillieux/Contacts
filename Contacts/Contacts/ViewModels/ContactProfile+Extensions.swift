@@ -16,20 +16,22 @@ extension ContactProfile {
         
         @Published var firstName: String
         @Published var lastName: String
-//        @Published var birthdate: Date
+        @Published var birthdate: Date?
         
         @Published var originalImage: UIImage?
         @Published var zoom: CGFloat?
         @Published var position: CGSize?
         @Published var inputImage: UIImage?
         
-        private var contact: Contact
+        var contact: Contact
+        var age: String?
         
         init(contact: Contact) {
             self.contact = contact
             self.firstName = contact.firstName
             self.lastName = contact.lastName
-//            self.birthdate = contact.birthdate ?? defaultDOB
+            self.birthdate = contact.birthdate
+            self.age = contact.age
         }
         
         func refreshWithNoChanges(){

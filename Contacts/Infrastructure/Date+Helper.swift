@@ -14,7 +14,10 @@ let dobFormatter: DateFormatter = {
     return formatter
 }()
 
-func defaultBirthDate(years: Int) -> Date {
+
+///Swift function using a default parameter
+///https://www.hackingwithswift.com/sixty/5/6/default-parameters
+func defaultBirthDate(years: Int = 14) -> Date {
     //Default birthdate, uelful so the user does not have to click so much to geet to a data close to the desired birthdate.
     ///Offset the deafult date by minus 14 years.
     let defaultDOB: Date = Calendar.current.date(byAdding: DateComponents(year: -years), to: Date()) ?? Date()

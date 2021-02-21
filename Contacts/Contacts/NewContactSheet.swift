@@ -58,10 +58,13 @@ struct NewContactSheet: View {
                 Form {
                     TextField("First Name", text: $viewModel.firstName)
                     TextField("Last Name", text: $viewModel.lastName)
-//                    DatePicker(selection: $viewModel.birthdate, in: ...Date(), displayedComponents: .date) {
-//                        Text("Birthdate")
-//                    }
-//                    .accentColor(.systemRed)
+                    
+                    ///Optional date handling asnwer from StackOverflow:
+                    ///https://stackoverflow.com/questions/59272801/swiftui-datepicker-binding-optional-date-valid-nil
+                    DatePicker(selection: Binding<Date>(get: {self.viewModel.birthdate ?? defaultBirthDate()}, set: {self.viewModel.birthdate = $0}), displayedComponents: .date) {
+                        Text("Birthdate")
+                    }
+                    .accentColor(.systemRed)
                     
 //                    Picker("Category", selection: $viewModel.category) {
 //                        ///We add this view so we can "nullify" a contact's category.

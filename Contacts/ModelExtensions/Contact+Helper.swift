@@ -47,6 +47,6 @@ extension Contact {
 
     var age: String? {
         let age = birthdate?.ageInYearsAndMonths
-        return age ?? "Indeterminate Age"
+        return age ?? "Unknown Age"
     }
 }
