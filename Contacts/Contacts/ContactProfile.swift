@@ -113,7 +113,7 @@ struct ContactProfile: View {
                                 }),
                             trailing:
                                 Button (action: {
-                                    if isEditing { viewModel.saveContact() }
+                                    if isEditing { try? viewModel.saveContact() }
                                     withAnimation {
                                         if !errorAlertIsPresented {
                                             self.isEditing.toggle()
@@ -127,48 +127,33 @@ struct ContactProfile: View {
             isPresented: $errorAlertIsPresented,
             content: { Alert(title: Text(errorAlertTitle)) })
         .statusBar(hidden: isShowingPhotoSelectionSheet)
-//        .fullScreenCover(isPresented: $isShowingPhotoSelectionSheet, onDismiss: {loadImage(contact: contact)}) {
-//            ImageMoveAndScaleSheet(originalImage: $originalImage, originalPosition: $position, originalZoom: $zoom, processedImage: $inputImage)
-//                .environmentObject(DeviceOrientation())
-//        }
-    }
-    
-//    func loadImage(contact: Contact) {
-//
-//        //TODO: - figure out what is going on here
-//
-//        guard let inputImage = inputImage else { return }
-//
-//        contact.picture?.image = inputImage
-//        if originalImage != nil {
-//            contact.picture?.originalImage = originalImage!
-//        }
-//        if zoom != nil {
-//            contact.picture?.scale = zoom!
-//        }
-//        if position != nil {
-//            contact.picture?.xWidth = Double(position!.width)
-//            contact.picture?.yHeight = Double(position!.height)
-//        }
-//
-//    }
-    
-
-
-}
-
-extension ContactProfile {
-    enum ValidationError: LocalizedError {
-        case missingFirstName
-        case missingLastName
-        var errorDescription: String? {
-            switch self {
-                case .missingFirstName:
-                    return "Please enter a first name for this contact."
-                case .missingLastName:
-                    return "Please enter a last name for this contact."
-            }
+        .fullScreenCover(isPresented: $isShowingPhotoSelectionSheet, onDismiss: {loadImage(contact: viewModel.contact)}) {
+            ImageMoveAndScaleSheet(originalImage: $viewModel.originalImage, originalPosition: $viewModel.position, originalZoom: $viewModel.zoom, processedImage: $viewModel.inputImage)
+                .environmentObject(DeviceOrientation())
         }
     }
+    
+    func loadImage(contact: Contact) {
+
+        //TODO: - figure out what is going on here
+
+        guard let inputImage = viewModel.inputImage else { return }
+
+        viewModel.contact.picture?.image = inputImage
+        if viewModel.originalImage != nil {
+            viewModel.contact.picture?.originalImage = viewModel.originalImage!
+        }
+        if viewModel.zoom != nil {
+            viewModel.contact.picture?.scale = viewModel.zoom!
+        }
+        if position != nil {
+            viewModel.contact.picture?.xWidth = Double(viewModel.position!.width)
+            viewModel.contact.picture?.yHeight = Double(viewModel.position!.height)
+        }
+
+    }
+    
+
+
 }
 

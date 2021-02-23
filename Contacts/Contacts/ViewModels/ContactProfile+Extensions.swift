@@ -17,7 +17,7 @@ extension ContactProfile {
         @Published var firstName: String
         @Published var lastName: String
         @Published var birthdate: Date?
-        
+
         @Published var originalImage: UIImage?
         @Published var zoom: CGFloat?
         @Published var position: CGSize?
@@ -43,45 +43,52 @@ extension ContactProfile {
             
         }
         
-//        func saveContactImage() {
-//
-//            guard let inputImage = inputImage else { return }
-//
-//            if contact.picture != nil {
-//                contact.picture!.image = inputImage
-//                contact.picture!.originalImage = originalImage!
-//                contact.picture!.scale = zoom!
-//                contact.picture!.xWidth = Double(position!.width)
-//                contact.picture!.yHeight = Double(position!.height)
-//
-//            } else {
-//
-//                let newContactImage = ContactImage(context: contact.managedObjectContext!)
-//
-//                if originalImage != nil && zoom != nil && position != nil {
-//                    newContactImage.image = inputImage
-//                    newContactImage.originalImage = originalImage!
-//                    newContactImage.scale = zoom!
-//                    newContactImage.xWidth = Double(position!.width)
-//                    newContactImage.yHeight = Double(position!.height)
-//                    newContactImage.contact = contact
-//                }
-//            }
-//
-//            do {
-//                try context.save()
-//                context.refresh(contact, mergeChanges: true)
-//            } catch {
-//                errorAlertTitle = (error as? LocalizedError)?.errorDescription ?? "An error occurred"
-//                errorAlertIsPresented = true
-//            }
-//        }
+        //        func saveContactImage() {
+        //
+        //            guard let inputImage = inputImage else { return }
+        //
+        //            if contact.picture != nil {
+        //                contact.picture!.image = inputImage
+        //                contact.picture!.originalImage = originalImage!
+        //                contact.picture!.scale = zoom!
+        //                contact.picture!.xWidth = Double(position!.width)
+        //                contact.picture!.yHeight = Double(position!.height)
+        //
+        //            } else {
+        //
+        //                let newContactImage = ContactImage(context: contact.managedObjectContext!)
+        //
+        //                if originalImage != nil && zoom != nil && position != nil {
+        //                    newContactImage.image = inputImage
+        //                    newContactImage.originalImage = originalImage!
+        //                    newContactImage.scale = zoom!
+        //                    newContactImage.xWidth = Double(position!.width)
+        //                    newContactImage.yHeight = Double(position!.height)
+        //                    newContactImage.contact = contact
+        //                }
+        //            }
+        //
+        //            do {
+        //                try context.save()
+        //                context.refresh(contact, mergeChanges: true)
+        //            } catch {
+        //                errorAlertTitle = (error as? LocalizedError)?.errorDescription ?? "An error occurred"
+        //                errorAlertIsPresented = true
+        //            }
+        //        }
         
-        func saveContact(){
+        func saveContact() throws {
             print("SAVING CONTACT")
+            if self.firstName == "" {
+                throw ValidationError.missingFirstName
+            }
+            if self.lastName == "" {
+                throw ValidationError.missingLastName
+            }
             do {
                 contact.firstName = firstName
                 contact.lastName = lastName
+                contact.birthdate = birthdate
                 try context.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
@@ -93,7 +100,20 @@ extension ContactProfile {
         }
         
         func resetContact(){
-           
+            
+        }
+    }
+    
+    enum ValidationError: LocalizedError {
+        case missingFirstName
+        case missingLastName
+        var errorDescription: String? {
+            switch self {
+                case .missingFirstName:
+                    return "Please enter a first name for this contact."
+                case .missingLastName:
+                    return "Please enter a last name for this contact."
+            }
         }
     }
 }

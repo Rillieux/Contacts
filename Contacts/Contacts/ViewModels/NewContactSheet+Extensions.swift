@@ -18,6 +18,11 @@ extension NewContactSheet {
         @Published var firstName = ""
         @Published var lastName = ""
         @Published var birthdate: Date? = nil
+        
+        @Published var originalImage: UIImage?
+        @Published var zoom: CGFloat?
+        @Published var position: CGSize?
+        @Published var inputImage: UIImage?
 
         let context = PersistenceController.shared.container.viewContext
         
