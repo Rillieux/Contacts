@@ -79,9 +79,9 @@ struct ContactProfile: View {
                 Form{
                     TextField("First Name", text: $viewModel.firstName)
                     TextField("Last Name", text: $viewModel.lastName)
-//                    DatePicker(selection: $contact.birthdate ?? defaultDOB, in: ...Date(), displayedComponents: .date) {
-//                        Text( contact.birthdate != nil ? "Change birthdate" : "Pick birthdate" )
-//                    }
+                    DatePicker(selection: Binding<Date>(get: {self.viewModel.birthdate ?? defaultBirthDate()}, set: {self.viewModel.birthdate = $0}), displayedComponents: .date) {
+                        Text( self.viewModel.birthdate != nil ? "Change birthdate" : "Pick birthdate" )
+                    }
                     
 //                    Picker("Level", selection: $contact.level) {
 //                        ///We add this view so we can "nullify" a contact's level.

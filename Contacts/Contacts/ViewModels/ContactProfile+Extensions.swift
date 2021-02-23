@@ -38,6 +38,7 @@ extension ContactProfile {
             print("REFRESHING CONTACT PROFILE VIEW")
             firstName = contact.firstName
             lastName = contact.lastName
+            birthdate = contact.birthdate
             context.refresh(contact, mergeChanges: false)
             
         }
