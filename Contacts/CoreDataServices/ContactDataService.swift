@@ -54,7 +54,7 @@ class ContactDataService: NSObject, ObservableObject {
 extension ContactDataService: NSFetchedResultsControllerDelegate {
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         guard let contacts = controller.fetchedObjects as? [Contact] else { return }
-        logger.log("Context has chanOOOged, reloading contacts")
+        logger.log("Context has changed, reloading contacts")
         self.contacts = contacts
     }
 }
