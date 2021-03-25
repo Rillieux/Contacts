@@ -40,6 +40,17 @@ import os
             saveContext()
         }
         
+        func updateContact(_ contact: Contact) {
+            logger.log("Updating contact: \(contact.firstName)")
+            saveContext()
+        }
+        
+        func deleteContact(_ contact: Contact) {
+            PersistenceController.shared.container.viewContext.delete(contact)
+            logger.log("Deleting contact: \(contact.firstName)")
+            saveContext()
+        }
+        
         private func saveContext() {
             do {
                 logger.log("Saving context")
