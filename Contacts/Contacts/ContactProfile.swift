@@ -37,7 +37,6 @@ struct ContactProfile: View {
                         .padding(5)
                         .background(Color.green)
                         .cornerRadius(8)
-                    
                 })
                 Button(action: {
                     viewModel.deleteContact(contact)
@@ -49,19 +48,16 @@ struct ContactProfile: View {
                         .padding(5)
                         .background(Color.red)
                         .cornerRadius(8)
-                    
                 })
-
             }
             .padding(.horizontal)
-
         }
     }
 }
 
 struct ContactProfile_Previews: PreviewProvider {
     
-    
+    //Yeah, this doesn't really work...
     
     static var dummyContact: Contact {
         let contact = PersistenceController.preview.container.viewContext.registeredObjects.first(where: { $0 is Contact }) as! Contact

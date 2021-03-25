@@ -10,7 +10,6 @@ import os
 
 fileprivate let logger = Logger(subsystem: "com.gymsymbol.Contacts", category: "ContactList")
 
-
 struct ContactList: View {
     
     @StateObject var viewModel: ContactList.ViewModel
@@ -33,7 +32,7 @@ struct ContactList: View {
                     viewModel.deleteContacts(offsets: indexSet)
                 })
             }
-            .onAppear(perform: viewModel.getContacts)
+            .onAppear(perform: viewModel.refreshContacts)
             .navigationTitle("Contacts: \(viewModel.contacts.count)")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading, content: { EditButton() })
@@ -41,7 +40,7 @@ struct ContactList: View {
                     Button(
                         action: {
                             viewModel.addContact(name: "New Contact")
-                            viewModel.getContacts()
+                            viewModel.refreshContacts()
                         },
                         label: { Image(systemName: "plus.circle").font(.system(size: 20)) }
                     )
@@ -54,6 +53,8 @@ struct ContactList: View {
 
 
 struct ContactList_Previews: PreviewProvider {
+    
+    //Doesn't really work at all....
     
     static var dummyContact: Contact {
         let contact = Contact(context: PersistenceController.preview.container.viewContext)
