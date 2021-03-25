@@ -5,7 +5,7 @@
 //  Created by Dave Kondris on 24/03/21.
 //
 
-fileprivate let logger = Logger(subsystem: "com.gymsymbol.Blocks", category: "ContactDataService")
+fileprivate let logger = Logger(subsystem: "com.gymsymbol.Contacts", category: "ContactDataService")
 
 import Foundation
 import CoreData
