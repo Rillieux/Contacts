@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import os
+
+fileprivate let logger = Logger(subsystem: "com.gymsymbol.Contacts", category: "ContactList")
+
 
 struct ContactList: View {
     
@@ -24,7 +28,6 @@ struct ContactList: View {
                         destination: ContactProfile(contact: contact)) {
                         Text("\(contact.firstName)")
                     }
-                    
                 }
                 .onDelete(perform: { indexSet in
                     viewModel.deleteContacts(offsets: indexSet)

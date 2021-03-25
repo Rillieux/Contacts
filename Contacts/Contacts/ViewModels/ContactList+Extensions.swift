@@ -7,6 +7,9 @@
 
 import Foundation
 import CoreData
+import os
+
+fileprivate let logger = Logger(subsystem: "com.gymsymbol.Contacts", category: "ContactList ViewModel extension")
 
     extension ContactList {
         class ViewModel: ObservableObject {
@@ -21,15 +24,18 @@ import CoreData
             
             func getContacts() {
                 contacts = ContactDataService.shared.contacts
+                logger.log("Getting contacts in viewModel")
+
             }
             
             func addContact(name: String) {
+                logger.log("Adding user in viewModel")
                 dataService.addContact(name: name)
             }
             
             func deleteContacts(offsets: IndexSet) {
                 let context = PersistenceController.shared.container.viewContext
-                print("DELETING USERS IN VIEWMODEL")
+                logger.log("Deleting contacts in viewModel")
                 offsets.map { contacts[$0] }.forEach(context.delete)
                 do {
                     try context.save()

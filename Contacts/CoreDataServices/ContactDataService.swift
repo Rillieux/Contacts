@@ -17,6 +17,7 @@ import os
         static let shared: ContactDataService = ContactDataService()
         
         public override init() {
+            logger.log(" ---- initializing ...")
             let fetchRequest: NSFetchRequest<Contact> = Contact.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "firstName_", ascending: true)]
             contactFetchController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: PersistenceController.shared.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -28,6 +29,8 @@ import os
             do {
                 try contactFetchController.performFetch()
                 contacts = contactFetchController.fetchedObjects ?? []
+                logger.log(" ---- initializing do try fetch ...")
+
             } catch {
                 NSLog("Error: could not fetch objects <Contact>")
             }

@@ -18,8 +18,6 @@ struct ContactProfile: View {
         self.contact = contact
     }
     
-    @State private var name: String = ""
-
     var body: some View {
         VStack {
             TextField("NAME", text: $viewModel.firstName)
@@ -61,8 +59,16 @@ struct ContactProfile: View {
     }
 }
 
-//struct ContactProfile_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContactProfile(, contact: <#Contact#>)
-//    }
-//}
+struct ContactProfile_Previews: PreviewProvider {
+    
+    
+    
+    static var dummyContact: Contact {
+        let contact = PersistenceController.preview.container.viewContext.registeredObjects.first(where: { $0 is Contact }) as! Contact
+        return contact
+    }
+    
+    static var previews: some View {
+        ContactProfile(contact: dummyContact)
+    }
+}
