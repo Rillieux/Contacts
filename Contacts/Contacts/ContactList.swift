@@ -7,42 +7,42 @@
 
 import SwiftUI
 
-struct ContactList: View {
-    
-    @StateObject var viewModel: ContactList.ViewModel
-    
-    init(viewModel: ViewModel = .init()) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
-    
-    var body: some View {
-        NavigationView {
-            
-            List {
-                ForEach(viewModel.contacts) { contact in
-                    Text("\(contact.firstName)")
+    struct ContactList: View {
+        
+        @StateObject var viewModel: ContactList.ViewModel
+        
+        init(viewModel: ViewModel = .init()) {
+            _viewModel = StateObject(wrappedValue: viewModel)
+        }
+        
+        var body: some View {
+            NavigationView {
+                
+                List {
+                    ForEach(viewModel.contacts) { contact in
+                        Text("\(contact.firstName)")
+                    }
+                    .onDelete(perform: { indexSet in
+                        viewModel.deleteContacts(offsets: indexSet)
+                    })
                 }
-                .onDelete(perform: { indexSet in
-                    viewModel.deleteContacts(offsets: indexSet)
-                })
-            }
-            .onAppear(perform: viewModel.getContacts)
-            .navigationTitle("Contacts: \(viewModel.contacts.count)")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading, content: { EditButton() })
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(
-                        action: {
-                            viewModel.addContact(name: "A New Contact")
-                            viewModel.getContacts()
-                        },
-                        label: { Image(systemName: "plus.circle").font(.system(size: 20)) }
-                    )
+                .onAppear(perform: viewModel.getContacts)
+                .navigationTitle("Contacts: \(viewModel.contacts.count)")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading, content: { EditButton() })
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(
+                            action: {
+                                viewModel.addContact(name: "A New Contact")
+                                //viewModel.getContacts()
+                            },
+                            label: { Image(systemName: "plus.circle").font(.system(size: 20)) }
+                        )
+                    }
                 }
             }
         }
     }
-}
 
 
 
