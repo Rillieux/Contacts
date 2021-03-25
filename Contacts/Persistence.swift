@@ -16,12 +16,10 @@ struct PersistenceController {
         
         for i in 0..<16 {
             
-            let names = ["Avenir", "Espoir", "Junior", "Senior"]
+            let names = ["Adelynne", "Burghandy", "Clarisse", "Daryna"]
             
-            let newLevel = Level(context: viewContext)
-            newLevel.name_ = names.randomElement()
-            newLevel.colorAsHex = "x45ee0a"
-            newLevel.sortOrder = Int16(i)
+            let newContact = Contact(context: viewContext)
+            newContact.firstName_ = names.randomElement()
         }
         
         do {

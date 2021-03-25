@@ -8,68 +8,56 @@
 import SwiftUI
 
 struct ContactList: View {
+    
     @StateObject var viewModel: ContactList.ViewModel
     
-    
-    
-    init(viewModel: ContactList.ViewModel = .init()) {
+    init(viewModel: ViewModel = .init()) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
-    @State var showingNewContactSheet = false
-    
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    ForEach(viewModel.contacts) { contact in
-                        NavigationLink (
-                            destination: ContactProfile(viewModel: ContactProfile.ViewModel(contact: contact))) {
-                            HStack (alignment: .firstTextBaseline) {
-                                Text("\(contact.firstName) \(contact.lastName)")
-                                Text("\(contact.level?.name ?? "")").font(.caption).foregroundColor(.gray)
-                            }
-                        }
-                    }
-                    .onDelete(perform: { indexSet in
-                        viewModel.deleteContacts(offsets: indexSet)
-                    })
+            
+            List {
+                ForEach(viewModel.contacts) { contact in
+                    Text("\(contact.firstName)")
                 }
-                .listStyle(PlainListStyle())
-                .onAppear(perform: viewModel.updateContacts)
-                .navigationTitle("Contacts")
+                .onDelete(perform: { indexSet in
+                    viewModel.deleteContacts(offsets: indexSet)
+                })
             }
-            .navigationBarItems(trailing: HStack {
-                EditButton()
-                addContactButton
+            .onAppear(perform: viewModel.getContacts)
+            .navigationTitle("Contacts: \(viewModel.contacts.count)")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading, content: { EditButton() })
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(
+                        action: {
+                            viewModel.addContact(name: "A New Contact")
+                            viewModel.getContacts()
+                        },
+                        label: { Image(systemName: "plus.circle").font(.system(size: 20)) }
+                    )
+                }
             }
-            )
         }
-    }
-    
-    private var addContactButton: some View {
-        Button(
-            action: {
-                self.showingNewContactSheet = true
-            },
-            label: { Image(systemName: "plus").imageScale(.large) })
-            .sheet(
-                isPresented: $showingNewContactSheet,
-                content: { self.newContactSheet })
-    }
-    
-    /// The contact creation sheet.
-    private var newContactSheet: some View {
-        NewContactSheet(viewModel: NewContactSheet.ViewModel(), dismissAction: {
-            self.showingNewContactSheet = false
-            viewModel.updateContacts()
-        }
-        )
     }
 }
 
+
+
 struct ContactList_Previews: PreviewProvider {
+    
+    static var dummyContact: Contact {
+        let contact = Contact(context: PersistenceController.preview.container.viewContext)
+        contact.firstName = "Dummy"
+        return contact
+    }
+    
     static var previews: some View {
-        ContactList()
+        let viewModel = ContactList.ViewModel()
+        viewModel.contacts = [dummyContact]
+        
+        return ContactList(viewModel: viewModel)
     }
 }
