@@ -5,7 +5,7 @@
 //  Created by Dave Kondris on 16/02/21.
 //
 
-import Foundation
+import Combine
 import CoreData
 import os
 
@@ -14,38 +14,45 @@ fileprivate let logger = Logger(subsystem: "com.gymsymbol.Contacts", category: "
 extension ContactList {
     class ViewModel: ObservableObject {
         
-        @Published var contacts = [Contact]()
+        @Published var contacts: [Contact] = []
         
-        let dataService: ContactDataService
+//        let dataService: ContactDataService
+        private var cancellable: AnyCancellable?
         
-        init(dataService: ContactDataService = ContactDataService()) {
-            self.dataService = dataService
+        init(contactPublisher: AnyPublisher<[Contact], Never> = ContactDataService.shared.contacts.eraseToAnyPublisher()) {
+//            self.dataService = dataService
+            cancellable = contactPublisher.sink { [unowned self] contacts in
+                logger.log("Updating contacts")
+                self.contacts = contacts
+                
+            }
+            logger.log("Initializing ViewModel")
         }
         
-        func refreshContacts() {
-            contacts = ContactDataService.shared.contacts
-            logger.log("Getting contacts in viewModel")
-            
-        }
-        
+//        func refreshContacts() {
+//            contacts = dataService.contacts.value
+//            logger.log("Getting contacts in viewModel")
+//
+//        }
+//
         func addContact(name: String) {
             logger.log("Adding user in viewModel")
-            dataService.addContact(name: name)
+            ContactDataService.shared.addContact(name: name)
         }
-        
-        func deleteContacts(offsets: IndexSet) {
-            let context = PersistenceController.shared.container.viewContext
-            logger.log("Deleting contacts in viewModel")
-            offsets.map { contacts[$0] }.forEach(context.delete)
-            do {
-                try context.save()
-                contacts = ContactDataService.shared.contacts
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+//
+//        func deleteContacts(offsets: IndexSet) {
+//            let context = PersistenceController.shared.container.viewContext
+//            logger.log("Deleting contacts in viewModel")
+//            offsets.map { contacts[$0] }.forEach(context.delete)
+//            do {
+//                try context.save()
+//                contacts = dataService.contacts.value
+//            } catch {
+//                // Replace this implementation with code to handle the error appropriately.
+//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                let nsError = error as NSError
+//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            }
+//        }
     }
 }

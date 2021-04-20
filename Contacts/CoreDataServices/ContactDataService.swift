@@ -7,20 +7,20 @@
 
 fileprivate let logger = Logger(subsystem: "com.gymsymbol.Contacts", category: "ContactDataService")
 
-import Foundation
+import Combine
 import CoreData
 import os
 
 class ContactDataService: NSObject, ObservableObject {
-    var contacts = [Contact]()
+    var contacts = CurrentValueSubject<[Contact], Never>([])
     private let contactFetchController: NSFetchedResultsController<Contact>
     static let shared: ContactDataService = ContactDataService()
     
     public override init() {
         logger.log(" ---- initializing ...")
-        let fetchRequest: NSFetchRequest<Contact> = Contact.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "firstName_", ascending: true)]
-        contactFetchController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: PersistenceController.shared.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+//        let fetchRequest: NSFetchRequest<Contact> = Contact.fetchRequest()
+//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "firstName_", ascending: true)]
+        contactFetchController = NSFetchedResultsController(fetchRequest: Contact.Request.all.rawValue, managedObjectContext: PersistenceController.shared.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         
         super.init()
         
@@ -28,7 +28,7 @@ class ContactDataService: NSObject, ObservableObject {
         
         do {
             try contactFetchController.performFetch()
-            contacts = contactFetchController.fetchedObjects ?? []
+            contacts.value = contactFetchController.fetchedObjects ?? []
             logger.log(" ---- initializing do try fetch ...")
             
         } catch {
@@ -69,6 +69,6 @@ extension ContactDataService: NSFetchedResultsControllerDelegate {
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         guard let contacts = controller.fetchedObjects as? [Contact] else { return }
         logger.log("Context has changed, reloading contacts")
-        self.contacts = contacts
+        self.contacts.value = contacts
     }
 }

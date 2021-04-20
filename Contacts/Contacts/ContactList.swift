@@ -28,11 +28,11 @@ struct ContactList: View {
                         Text("\(contact.firstName)")
                     }
                 }
-                .onDelete(perform: { indexSet in
-                    viewModel.deleteContacts(offsets: indexSet)
-                })
+//                .onDelete(perform: { indexSet in
+//                    viewModel.deleteContacts(offsets: indexSet)
+//                })
             }
-            .onAppear(perform: viewModel.refreshContacts)
+//            .onAppear(perform: viewModel.refreshContacts)
             .navigationTitle("Contacts: \(viewModel.contacts.count)")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading, content: { EditButton() })
@@ -40,7 +40,7 @@ struct ContactList: View {
                     Button(
                         action: {
                             viewModel.addContact(name: "New Contact")
-                            viewModel.refreshContacts()
+//                            viewModel.refreshContacts()
                         },
                         label: { Image(systemName: "plus.circle").font(.system(size: 20)) }
                     )
