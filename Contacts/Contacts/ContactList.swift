@@ -26,6 +26,7 @@ struct ContactList: View {
                     NavigationLink(
                         destination: ContactProfile(contact: contact)) {
                         Text("\(contact.firstName)")
+                            .onAppear(perform: {printName(contact: contact)})
                     }
                 }
 //                .onDelete(perform: { indexSet in
@@ -39,6 +40,7 @@ struct ContactList: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(
                         action: {
+                            logger.log("Add contact in view")
                             viewModel.addContact(name: "New Contact")
 //                            viewModel.refreshContacts()
                         },
@@ -47,6 +49,10 @@ struct ContactList: View {
                 }
             }
         }
+    }
+    
+    func printName(contact: Contact) {
+        print(contact.firstName)
     }
 }
 

@@ -17,9 +17,7 @@ class ContactDataService: NSObject, ObservableObject {
     static let shared: ContactDataService = ContactDataService()
     
     public override init() {
-        logger.log(" ---- initializing ...")
-//        let fetchRequest: NSFetchRequest<Contact> = Contact.fetchRequest()
-//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "firstName_", ascending: true)]
+        logger.log(" * public override init() ")
         contactFetchController = NSFetchedResultsController(fetchRequest: Contact.Request.all.rawValue, managedObjectContext: PersistenceController.shared.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         
         super.init()
@@ -29,7 +27,7 @@ class ContactDataService: NSObject, ObservableObject {
         do {
             try contactFetchController.performFetch()
             contacts.value = contactFetchController.fetchedObjects ?? []
-            logger.log(" ---- initializing do try fetch ...")
+            logger.log(" * try contactFetchController.performFetch(). Count = \(self.contacts.value.count)")
             
         } catch {
             NSLog("Error: could not fetch objects <Contact>")
@@ -37,28 +35,28 @@ class ContactDataService: NSObject, ObservableObject {
     }
     
     func addContact(name: String) {
-        logger.log("Adding contact: \(name)")
+        logger.log(" * Adding contact: \(name)")
         let newContact = Contact(context: PersistenceController.shared.container.viewContext)
         newContact.setValue(name, forKey: "firstName_")
         saveContext()
     }
     
     func updateContact(_ contact: Contact) {
-        logger.log("Updating contact: \(contact.firstName)")
+        logger.log(" * Updating contact: \(contact.firstName)")
         saveContext()
     }
     
     func deleteContact(_ contact: Contact) {
         PersistenceController.shared.container.viewContext.delete(contact)
-        logger.log("Deleting contact: \(contact.firstName)")
+        logger.log(" * Deleting contact: \(contact.firstName)")
         saveContext()
     }
     
     private func saveContext() {
         do {
-            logger.log("Saving context")
+            logger.log(" * Saving context")
             try PersistenceController.shared.container.viewContext.save()
-            logger.log("Successfully saved context")
+            logger.log(" ** Successfully saved context")
         } catch {
             logger.error("ERROR: \(error as NSObject)")
         }
@@ -68,7 +66,7 @@ class ContactDataService: NSObject, ObservableObject {
 extension ContactDataService: NSFetchedResultsControllerDelegate {
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         guard let contacts = controller.fetchedObjects as? [Contact] else { return }
-        logger.log("Context has changed, reloading contacts")
+        logger.log(" * Context has changed, reloading contacts")
         self.contacts.value = contacts
     }
 }

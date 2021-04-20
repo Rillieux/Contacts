@@ -10,19 +10,15 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView {
-            ContactList()
+            ContactsView()
                 .tabItem{
-                    VStack{
-                        Image(systemName: "person.crop.circle.fill")
-                        Text("Contacts")
-                    }
+                    Image(systemName: "person.crop.circle.fill")
+                    Text("Contacts")
                 }.tag(1)
             LevelList()
                 .tabItem{
-                    VStack{
-                        Image(systemName: "list.bullet")
-                        Text("Levels")
-                    }
+                    Image(systemName: "list.bullet")
+                    Text("Levels")
                 }.tag(2)
         }
     }

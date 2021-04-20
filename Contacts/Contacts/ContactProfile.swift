@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import os
+
+fileprivate let logger = Logger(subsystem: "com.gymsymbol.contacts", category: "ContactsProfile")
 
 struct ContactProfile: View {
     
@@ -24,6 +27,7 @@ struct ContactProfile: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .onAppear(perform: {
+                    
                     viewModel.loadProfileFromContact(contact)
                 })
             HStack (spacing: 24) {
