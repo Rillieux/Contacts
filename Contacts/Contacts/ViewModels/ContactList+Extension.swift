@@ -14,8 +14,6 @@ extension ContactList {
         
         let dataService: ContactDataServiceProtocol
         
-        var firstName: String = ""
-        
         @Published var contacts: [Contact] = []
         
         init(dataService: ContactDataServiceProtocol = ContactDataService()) {
@@ -24,10 +22,6 @@ extension ContactList {
         
         func getContacts() {
             self.contacts = dataService.getContacts()
-        }
-        
-        func addContact(){
-            dataService.addContact(name: firstName)
         }
         
         func deleteContacts(at offsets: IndexSet) {

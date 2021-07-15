@@ -15,6 +15,8 @@ struct ContactList: View {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
+    @State var showingNewContactSheet = false
+    
     var body: some View {
         NavigationView {
             
@@ -37,7 +39,7 @@ struct ContactList: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(
                         action: {
-                            viewModel.addContact(name: "New Contact")
+                            //show new contact form
 //                            viewModel.refreshContacts()
                         },
                         label: { Image(systemName: "plus.circle").font(.system(size: 20)) }
@@ -45,6 +47,26 @@ struct ContactList: View {
                 }
             }
         }
+    }
+    
+    // The button that presents the contact creation sheet.
+    private var addContactButton: some View {
+        Button(
+            action: {
+                self.showingNewContactSheet = true
+            },
+            label: { Image(systemName: "plus").imageScale(.large) })
+            .sheet(
+                isPresented: $showingNewContactSheet,
+                content: { self.newContactSheet })
+    }
+    
+    // The contact creation sheet.
+    private var newContactSheet: some View {
+        ContactForm(
+            dismissAction: {
+                self.showingNewContactSheet = false
+            })
     }
     
     func printName(contact: Contact) {
@@ -56,7 +78,7 @@ struct ContactList: View {
 
 struct ContactList_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = ContactList.ViewModel = .init(dataService: MockContactDataService())
+        let viewModel: ContactList.ViewModel = .init(dataService: MockContactDataService())
         return ContactList(viewModel: viewModel)
     }
 }

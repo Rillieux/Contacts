@@ -31,6 +31,7 @@
 		F4537912260CF3B7002C08C4 /* ContactProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4537911260CF3B7002C08C4 /* ContactProfile.swift */; };
 		F4537917260CF3CC002C08C4 /* ContactProfile+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4537916260CF3CC002C08C4 /* ContactProfile+Extensions.swift */; };
 		F45564C1262F10720005CCC7 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45564C0262F10720005CCC7 /* ContactsView.swift */; };
+		F46CBE2126A00F890098C0F7 /* ContactForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46CBE2026A00F890098C0F7 /* ContactForm.swift */; };
 		F4E7DDEB25E31620008C770B /* Contacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4E7DDE925E31620008C770B /* Contacts.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		F4537911260CF3B7002C08C4 /* ContactProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactProfile.swift; sourceTree = "<group>"; };
 		F4537916260CF3CC002C08C4 /* ContactProfile+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactProfile+Extensions.swift"; sourceTree = "<group>"; };
 		F45564C0262F10720005CCC7 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		F46CBE2026A00F890098C0F7 /* ContactForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactForm.swift; sourceTree = "<group>"; };
 		F4E7DDEA25E31620008C770B /* Contacts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contacts.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				F448CE9C25D95D0B0007C821 /* ContactList.swift */,
+				F46CBE2026A00F890098C0F7 /* ContactForm.swift */,
 				F4537911260CF3B7002C08C4 /* ContactProfile.swift */,
 				F41906A925DBEDEF00D4CD75 /* ViewModels */,
 			);
@@ -386,6 +389,7 @@
 				F44B0EB0269ED84700D9466C /* Contact+Manager.swift in Sources */,
 				F41906C025DBEF9400D4CD75 /* ImageMoveAndScaleSheet.swift in Sources */,
 				F41906CE25DBEFE100D4CD75 /* Bindings+Helper.swift in Sources */,
+				F46CBE2126A00F890098C0F7 /* ContactForm.swift in Sources */,
 				F45564C1262F10720005CCC7 /* ContactsView.swift in Sources */,
 				F448CE6B25D95B450007C821 /* Persistence.swift in Sources */,
 				F4E7DDEB25E31620008C770B /* Contacts.xcdatamodeld in Sources */,
