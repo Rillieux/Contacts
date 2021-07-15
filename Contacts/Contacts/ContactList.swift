@@ -6,9 +6,6 @@
 //
 
 import SwiftUI
-import os
-
-fileprivate let logger = Logger(subsystem: "com.gymsymbol.Contacts", category: "ContactList")
 
 struct ContactList: View {
     
@@ -40,7 +37,6 @@ struct ContactList: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(
                         action: {
-                            logger.log("Add contact in view")
                             viewModel.addContact(name: "New Contact")
 //                            viewModel.refreshContacts()
                         },
@@ -59,19 +55,8 @@ struct ContactList: View {
 
 
 struct ContactList_Previews: PreviewProvider {
-    
-    //Doesn't really work at all....
-    
-    static var dummyContact: Contact {
-        let contact = Contact(context: PersistenceController.preview.container.viewContext)
-        contact.firstName = "Dummy"
-        return contact
-    }
-    
     static var previews: some View {
-        let viewModel = ContactList.ViewModel()
-        viewModel.contacts = [dummyContact]
-        
+        let viewModel = ContactList.ViewModel = .init(dataService: MockContactDataService())
         return ContactList(viewModel: viewModel)
     }
 }

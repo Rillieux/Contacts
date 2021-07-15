@@ -6,9 +6,6 @@
 //
 
 import SwiftUI
-import os
-
-fileprivate let logger = Logger(subsystem: "com.gymsymbol.contacts", category: "ContactsProfile")
 
 struct ContactProfile: View {
     
@@ -23,16 +20,16 @@ struct ContactProfile: View {
     
     var body: some View {
         VStack {
-            TextField("NAME", text: $viewModel.firstName)
+            TextField("NAME", text: $viewModel.givenName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .onAppear(perform: {
                     
-                    viewModel.loadProfileFromContact(contact)
+//                    viewModel.loadProfileFromContact(contact)
                 })
             HStack (spacing: 24) {
                 Button(action: {
-                    viewModel.updateContact(contact)
+//                    viewModel.updateContact(contact)
                 }, label: {
                     Text("Save")
                         .font(.title)
@@ -43,7 +40,7 @@ struct ContactProfile: View {
                         .cornerRadius(8)
                 })
                 Button(action: {
-                    viewModel.deleteContact(contact)
+//                    viewModel.deleteContact(contact)
                 }, label: {
                     Text("Delete")
                         .font(.title)
@@ -60,15 +57,10 @@ struct ContactProfile: View {
 }
 
 struct ContactProfile_Previews: PreviewProvider {
-    
-    //Yeah, this doesn't really work...
-    
-    static var dummyContact: Contact {
-        let contact = PersistenceController.preview.container.viewContext.registeredObjects.first(where: { $0 is Contact }) as! Contact
-        return contact
-    }
-    
     static var previews: some View {
-        ContactProfile(contact: dummyContact)
+        let viewModel: ContactProfile.ViewModel = .init(dataService: MockContactDataService())
+        let contacts = viewModel.dataService.getContacts()
+        let contact = contacts[0]
+        ContactProfile(contact: contact)
     }
 }

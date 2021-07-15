@@ -5,30 +5,18 @@
 //  Created by Dave Kondris on 25/03/21.
 //
 
-import Foundation
-import os
-
-fileprivate let logger = Logger(subsystem: "com.gymsymbol.Contacts", category: "ContactProfile.ViewModel")
-
+import SwiftUI
 
 extension ContactProfile {
     
     class ViewModel: ObservableObject {
         
-        @Published var firstName: String = ""
-
-        func loadProfileFromContact(_ contact: Contact) {
-            firstName = contact.firstName
-        }
+        let dataService: ContactDataServiceProtocol
         
-        func updateContact(_ contact: Contact) {
-            contact.firstName = firstName
-            ContactDataService.shared.updateContact(contact)
-            logger.log("Updating contact")
-        }
+        @Published var givenName: String = ""
         
-        func deleteContact(_ contact: Contact) {
-            ContactDataService.shared.deleteContact(contact)
+        init(dataService: ContactDataServiceProtocol = ContactDataService()) {
+            self.dataService = dataService
         }
     }
 }
