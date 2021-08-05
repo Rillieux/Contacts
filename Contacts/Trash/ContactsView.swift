@@ -35,7 +35,7 @@
 //                ForEach(viewModel.contacts) { contact in
 //                    NavigationLink(
 //                        destination: LazyView(ContactProfile(contact: contact))) {
-//                        Text("\(contact.firstName)")
+//                        Text("\(contact.givenName)")
 //                    }
 //                }
 //            }

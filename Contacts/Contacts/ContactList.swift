@@ -24,7 +24,7 @@ struct ContactList: View {
                 ForEach(viewModel.contacts) { contact in
                     NavigationLink(
                         destination: ContactProfile(contact: contact)) {
-                        Text("\(contact.firstName)")
+                        Text("\(contact.givenName)")
                             .onAppear(perform: {printName(contact: contact)})
                     }
                 }
@@ -63,7 +63,7 @@ struct ContactList: View {
     }
     
     func printName(contact: Contact) {
-        print(contact.firstName)
+        print(contact.givenName)
     }
 }
 

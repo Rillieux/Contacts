@@ -10,12 +10,12 @@ import CoreData
 import SwiftUI
 
 extension Contact {
-    var firstName: String {
+    var givenName: String {
         get {
-            return firstName_ ?? ""
+            return givenName_ ?? ""
         }
         set {
-            firstName_ = newValue
+            givenName_ = newValue
         }
     }
 }
