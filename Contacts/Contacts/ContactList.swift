@@ -37,13 +37,7 @@ struct ContactList: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading, content: { EditButton() })
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(
-                        action: {
-                            //show new contact form
-//                            viewModel.refreshContacts()
-                        },
-                        label: { Image(systemName: "plus.circle").font(.system(size: 20)) }
-                    )
+                    addContactButton
                 }
             }
         }
@@ -55,7 +49,9 @@ struct ContactList: View {
             action: {
                 self.showingNewContactSheet = true
             },
-            label: { Image(systemName: "plus").imageScale(.large) })
+            label: {
+                Image(systemName: "plus.circle").font(.system(size: 20))
+            })
             .sheet(
                 isPresented: $showingNewContactSheet,
                 content: { self.newContactSheet })
@@ -63,10 +59,7 @@ struct ContactList: View {
     
     // The contact creation sheet.
     private var newContactSheet: some View {
-        ContactForm(
-            dismissAction: {
-                self.showingNewContactSheet = false
-            })
+        ContactForm()
     }
     
     func printName(contact: Contact) {
