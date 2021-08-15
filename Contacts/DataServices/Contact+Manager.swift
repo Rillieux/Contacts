@@ -11,7 +11,7 @@ import Combine
 protocol ContactDataServiceProtocol {
     func getContacts() -> [Contact]
     func getContactById(id: NSManagedObjectID) -> Contact?
-    func addContact(name: String)
+    func addContact(givenName: String, middleName: String, familyName: String, nickName: String)
     func deleteContact(_ contact: Contact)
 }
 
@@ -38,9 +38,12 @@ class ContactDataService: ContactDataServiceProtocol {
         }
     }
     
-    func addContact(name: String) {
+    func addContact(givenName: String = "", middleName: String = "", familyName: String = "", nickName: String = "") {
         let newContact = Contact(context: viewContext)
-        newContact.givenName = name
+        newContact.givenName = givenName
+        newContact.middleName = middleName
+        newContact.familyName = familyName
+        newContact.nickname = nickName
         saveContext()
     }
     

@@ -17,8 +17,11 @@ struct ContactForm: View {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
-    @State private var givenName: String = ""
-    
+    @State private var givenName = ""
+    @State private var middleName = ""
+    @State private var familyName = ""
+    @State private var nickname = ""
+
     var body: some View {
         NavigationView {
             VStack {
@@ -34,11 +37,30 @@ struct ContactForm: View {
             .navigationTitle("New Contact")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem (placement: .navigationBarLeading)
-                    { Text("Cancel") }
+                ToolbarItem (placement: .navigationBarLeading) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    ) {
+                        Text("Cancel")
+                    }
+                }
                 ToolbarItem (placement: .navigationBarTrailing)
-                    { Text("Save") }
-                
+                {
+                    Button(action:
+                            {
+                        viewModel.addContact(
+                            givenName: givenName,
+                            middleName: middleName,
+                            familyName: familyName,
+                            nickname: nickname
+                        )
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    ) {
+                        Text("Add")
+                    }
+                }
             }
         }
     }

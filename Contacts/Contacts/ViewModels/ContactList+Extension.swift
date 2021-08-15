@@ -19,7 +19,7 @@ extension ContactList {
             self.dataService = dataService
         }
         
-        func getContacts() {
+        func refreshContacts() {
             self.contacts = dataService.getContacts()
         }
         

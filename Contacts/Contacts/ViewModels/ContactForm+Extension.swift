@@ -13,14 +13,17 @@ extension ContactForm {
         
         let dataService: ContactDataServiceProtocol
         
-        @Published var givenName: String = ""
-        
         init(dataService: ContactDataServiceProtocol = ContactDataService()) {
             self.dataService = dataService
         }
         
-        func addContact() {
-            dataService.addContact(name: givenName)
+        func addContact(givenName: String, middleName: String, familyName: String, nickname: String) {
+            dataService.addContact(
+                givenName: givenName,
+                middleName: middleName,
+                familyName: familyName,
+                nickName: nickname
+            )
         }
     }
 }

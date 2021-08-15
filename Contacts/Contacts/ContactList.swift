@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContactList: View {
     
-    @StateObject var viewModel: ContactList.ViewModel
+    @StateObject private var viewModel: ContactList.ViewModel
     
     init(viewModel: ViewModel = .init()) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -28,11 +28,12 @@ struct ContactList: View {
                             .onAppear(perform: {printName(contact: contact)})
                     }
                 }
-//                .onDelete(perform: { indexSet in
-//                    viewModel.deleteContacts(offsets: indexSet)
-//                })
+                .onDelete(perform: { indexSet in
+                    viewModel.deleteContacts(at: indexSet)
+                    viewModel.refreshContacts()
+                })
             }
-//            .onAppear(perform: viewModel.refreshContacts)
+            .onAppear(perform: viewModel.refreshContacts)
             .navigationTitle("Contacts: \(viewModel.contacts.count)")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading, content: { EditButton() })
@@ -52,9 +53,7 @@ struct ContactList: View {
             label: {
                 Image(systemName: "plus.circle").font(.system(size: 20))
             })
-            .sheet(
-                isPresented: $showingNewContactSheet,
-                content: { self.newContactSheet })
+            .sheet(isPresented: $showingNewContactSheet, onDismiss: { viewModel.refreshContacts() }, content: { self.newContactSheet })
     }
     
     // The contact creation sheet.

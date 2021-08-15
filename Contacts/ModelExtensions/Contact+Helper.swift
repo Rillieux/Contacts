@@ -18,4 +18,28 @@ extension Contact {
             givenName_ = newValue
         }
     }
+    var middleName: String {
+        get {
+            return middleName_ ?? ""
+        }
+        set {
+            middleName_ = newValue
+        }
+    }
+    var familyName: String {
+        get {
+            return familyName_ ?? ""
+        }
+        set {
+            familyName_ = newValue
+        }
+    }
+    var nickname: String {
+        get {
+            return nickname_ ?? ""
+        }
+        set {
+            nickname_ = newValue
+        }
+    }
 }
