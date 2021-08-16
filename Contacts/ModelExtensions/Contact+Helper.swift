@@ -42,4 +42,22 @@ extension Contact {
             nickname_ = newValue
         }
     }
+    
+    func displayName() -> String {
+        var components = PersonNameComponents()
+        components.givenName = givenName
+        components.familyName = familyName
+        let formatter = PersonNameComponentsFormatter.localizedString(
+            from: components, style: .default, options: [])
+        return formatter
+    }
+    
+    func initials() -> String {
+        let formatter = PersonNameComponentsFormatter()
+        var components = PersonNameComponents()
+        components.givenName = givenName
+        components.familyName = familyName
+        formatter.style = .abbreviated
+        return formatter.string(from: components)
+    }
 }

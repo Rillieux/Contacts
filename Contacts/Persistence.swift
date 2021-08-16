@@ -14,9 +14,11 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<6 {
-            let names = ["Adelynne", "Burghandy", "Clarisse", "Daryna"]
+            let givenNames = ["安納", "Abby", "Clarisse", "Evelynne"]
+            let familyNames = ["王", "Clark", "Forester", "Hamilton"]
             let newContact = Contact(context: viewContext)
-            newContact.givenName_ = names.randomElement()
+            newContact.givenName_ = givenNames.randomElement()
+            newContact.familyName_ = familyNames.randomElement()
         }
         do {
             try viewContext.save()

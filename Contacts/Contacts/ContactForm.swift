@@ -21,15 +21,21 @@ struct ContactForm: View {
     @State private var middleName = ""
     @State private var familyName = ""
     @State private var nickname = ""
-
+    
     var body: some View {
         NavigationView {
             VStack {
                 Image(systemName: "camera.aperture")
                     .resizable()
                     .frame(width: 80, height: 80, alignment: .center)
-                TextField("Given name", text: $givenName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Group {
+                    TextField("Given name", text: $givenName)
+                    TextField("Middle name", text: $middleName)
+                    TextField("Family name", text: $familyName)
+                    TextField("Nickname", text: $nickname)
+
+                }
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 Spacer()
                 
             }

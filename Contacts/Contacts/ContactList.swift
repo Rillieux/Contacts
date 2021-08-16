@@ -24,8 +24,7 @@ struct ContactList: View {
                 ForEach(viewModel.contacts) { contact in
                     NavigationLink(
                         destination: ContactProfile(contact: contact)) {
-                        Text("\(contact.givenName)")
-                            .onAppear(perform: {printName(contact: contact)})
+                            Text("\(contact.displayName())")
                     }
                 }
                 .onDelete(perform: { indexSet in
@@ -60,13 +59,7 @@ struct ContactList: View {
     private var newContactSheet: some View {
         ContactForm()
     }
-    
-    func printName(contact: Contact) {
-        print(contact.givenName)
-    }
 }
-
-
 
 struct ContactList_Previews: PreviewProvider {
     static var previews: some View {
