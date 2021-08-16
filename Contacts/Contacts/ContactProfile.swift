@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContactProfile: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @StateObject var viewModel: ContactProfile.ViewModel
     
     var contact: Contact
@@ -18,41 +20,38 @@ struct ContactProfile: View {
         self.contact = contact
     }
     
+    @State private var showAlert: Bool = false
+    
     var body: some View {
         VStack {
-            TextField("NAME", text: $viewModel.givenName)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                .onAppear(perform: {
-                    
-//                    viewModel.loadProfileFromContact(contact)
-                })
-            HStack (spacing: 24) {
-                Button(action: {
-//                    viewModel.updateContact(contact)
-                }, label: {
-                    Text("Save")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .frame(width: 110, height: 44, alignment: .center)
-                        .padding(5)
-                        .background(Color.green)
-                        .cornerRadius(8)
-                })
-                Button(action: {
-//                    viewModel.deleteContact(contact)
-                }, label: {
-                    Text("Delete")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .frame(width: 110, height: 44, alignment: .center)
-                        .padding(5)
-                        .background(Color.red)
-                        .cornerRadius(8)
-                })
+            Text(contact.birthdate?.ageInYearsAndMonths ?? "dunno")
+            TextField("Given Name", text: $viewModel.givenName)
+            TextField("Family Name", text: $viewModel.familyName)
+            DatePicker(selection: $viewModel.birthdate, in: ...Date(), displayedComponents: .date) {
+                Text( contact.birthdate != nil ? "Change birthdate" : "Pick birthdate" )
             }
-            .padding(.horizontal)
+            Spacer()
         }
+        .textFieldStyle(RoundedBorderTextFieldStyle())
+        .padding()
+        .onAppear(perform: {
+            viewModel.loadProfileFromContact(contact)
+        })
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Cancel") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Done") {
+                    viewModel.updateContact(contact)
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

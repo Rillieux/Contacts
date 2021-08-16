@@ -12,6 +12,7 @@ protocol ContactDataServiceProtocol {
     func getContacts() -> [Contact]
     func getContactById(id: NSManagedObjectID) -> Contact?
     func addContact(givenName: String, middleName: String, familyName: String, nickName: String)
+    func updateContact(_ contact: Contact)
     func deleteContact(_ contact: Contact)
 }
 
@@ -44,6 +45,10 @@ class ContactDataService: ContactDataServiceProtocol {
         newContact.middleName = middleName
         newContact.familyName = familyName
         newContact.nickname = nickName
+        saveContext()
+    }
+    
+    func updateContact(_ contact: Contact) {
         saveContext()
     }
     
