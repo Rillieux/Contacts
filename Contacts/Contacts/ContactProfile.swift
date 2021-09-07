@@ -26,7 +26,9 @@ struct ContactProfile: View {
         VStack {
             Text(contact.birthdate?.ageInYearsAndMonths ?? "dunno")
             TextField("Given Name", text: $viewModel.givenName)
+            TextField("Middle Name", text: $viewModel.middleName)
             TextField("Family Name", text: $viewModel.familyName)
+            TextField("Nickame", text: $viewModel.nickname)
             DatePicker(selection: $viewModel.birthdate, in: ...Date(), displayedComponents: .date) {
                 Text( contact.birthdate != nil ? "Change birthdate" : "Pick birthdate" )
             }

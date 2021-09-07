@@ -60,8 +60,14 @@ import Combine
             if contact.givenName.isEmpty {
                 contact.givenName_ = nil
             }
+            if contact.middleName.isEmpty {
+                contact.middleName_ = nil
+            }
             if contact.familyName.isEmpty {
                 contact.familyName_ = nil
+            }
+            if contact.nickname.isEmpty {
+                contact.nickname_ = nil
             }
             if dateIsLessThanOneYear(date: contact.birthdate ?? Date()) {
                 contact.birthdate = nil

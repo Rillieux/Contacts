@@ -14,7 +14,9 @@ extension ContactProfile {
         let dataService: ContactDataServiceProtocol
         
         @Published var givenName: String = ""
+        @Published var middleName: String = ""
         @Published var familyName: String = ""
+        @Published var nickname: String = ""
         @Published var birthdate: Date = Date()
         
         init(dataService: ContactDataServiceProtocol = ContactDataService()) {
@@ -24,7 +26,9 @@ extension ContactProfile {
         
         func updateContact(_ contact: Contact){
             contact.givenName = givenName
+            contact.middleName = middleName
             contact.familyName = familyName
+            contact.nickname = nickname
             contact.birthdate = birthdate
             dataService.updateContact(contact)
             findPath()
