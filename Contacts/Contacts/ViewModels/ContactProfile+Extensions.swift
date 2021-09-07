@@ -16,7 +16,7 @@ extension ContactProfile {
         @Published var givenName: String = ""
         @Published var familyName: String = ""
         @Published var birthdate: Date = Date()
-
+        
         init(dataService: ContactDataServiceProtocol = ContactDataService()) {
             self.dataService = dataService
             self.birthdate = Calendar.current.date(byAdding: DateComponents(year: -14), to: Date()) ?? Date()
@@ -27,6 +27,7 @@ extension ContactProfile {
             contact.familyName = familyName
             contact.birthdate = birthdate
             dataService.updateContact(contact)
+            findPath()
         }
         
         func loadProfileFromContact(_ contact: Contact) {

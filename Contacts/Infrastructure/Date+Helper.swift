@@ -30,6 +30,15 @@ func defaultBirthDate(years: Int = 14) -> Date {
     return defaultDOB
 }
 
+func dateIsLessThanOneYear(date: Date) ->  Bool {
+    var years: Int { Calendar.current.dateComponents([.year], from: date, to: Date()).year! }
+    if years < 1 {
+        return true
+    } else {
+        return false
+    }
+}
+
 class AppDateFormatter {
     static let shared = AppDateFormatter()
     

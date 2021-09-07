@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40883EF26E74BBF00C3E30D /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40883EE26E74BBF00C3E30D /* Debugging.swift */; };
 		F41906C925DBEFD200D4CD75 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41906C825DBEFD200D4CD75 /* DeviceOrientation.swift */; };
 		F41AE47825D96B21003E4B1E /* Color+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE47725D96B21003E4B1E /* Color+Helper.swift */; };
 		F41AE48825D997C2003E4B1E /* Contact+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41AE48725D997C2003E4B1E /* Contact+Helper.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F40883EE26E74BBF00C3E30D /* Debugging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debugging.swift; sourceTree = "<group>"; };
 		F41906C825DBEFD200D4CD75 /* DeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientation.swift; sourceTree = "<group>"; };
 		F41AE47725D96B21003E4B1E /* Color+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Helper.swift"; sourceTree = "<group>"; };
 		F41AE48725D997C2003E4B1E /* Contact+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Helper.swift"; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F40883F326E74BD100C3E30D /* Debugging */ = {
+			isa = PBXGroup;
+			children = (
+				F40883EE26E74BBF00C3E30D /* Debugging.swift */,
+			);
+			path = Debugging;
+			sourceTree = "<group>";
+		};
 		F41906A925DBEDEF00D4CD75 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 		F41AE47325D96AD1003E4B1E /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				F40883F326E74BD100C3E30D /* Debugging */,
 				F41AE47725D96B21003E4B1E /* Color+Helper.swift */,
 				F41AE48C25D997DC003E4B1E /* Date+Helper.swift */,
 				F41906C825DBEFD200D4CD75 /* DeviceOrientation.swift */,
@@ -369,6 +380,7 @@
 				F41AE48D25D997DC003E4B1E /* Date+Helper.swift in Sources */,
 				F448CE9825D95CE50007C821 /* MainTabView.swift in Sources */,
 				F44B0EBC269EDA0500D9466C /* ContactList+Extension.swift in Sources */,
+				F40883EF26E74BBF00C3E30D /* Debugging.swift in Sources */,
 				F448CE9D25D95D0B0007C821 /* ContactList.swift in Sources */,
 				F448CEA225D95D1E0007C821 /* LevelList.swift in Sources */,
 				F41AE48825D997C2003E4B1E /* Contact+Helper.swift in Sources */,
