@@ -29,6 +29,7 @@
 		F46CBE2126A00F890098C0F7 /* ContactForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46CBE2026A00F890098C0F7 /* ContactForm.swift */; };
 		F4708235270DA39F002E906D /* ImageAttributeStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4708234270DA39F002E906D /* ImageAttributeStructs.swift */; };
 		F4789DCC2753EE7A00C4F4B7 /* ProfileImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4789DCB2753EE7A00C4F4B7 /* ProfileImage+Helper.swift */; };
+		F4789DCE2754020A00C4F4B7 /* UIImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4789DCD2754020A00C4F4B7 /* UIImage+Helper.swift */; };
 		F4A7BC6F2753CABB0020057A /* PhotoSelectAndCrop in Frameworks */ = {isa = PBXBuildFile; productRef = F4A7BC6E2753CABB0020057A /* PhotoSelectAndCrop */; };
 		F4E7DDEB25E31620008C770B /* Contacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4E7DDE925E31620008C770B /* Contacts.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		F46CBE2026A00F890098C0F7 /* ContactForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactForm.swift; sourceTree = "<group>"; };
 		F4708234270DA39F002E906D /* ImageAttributeStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAttributeStructs.swift; sourceTree = "<group>"; };
 		F4789DCB2753EE7A00C4F4B7 /* ProfileImage+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileImage+Helper.swift"; sourceTree = "<group>"; };
+		F4789DCD2754020A00C4F4B7 /* UIImage+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Helper.swift"; sourceTree = "<group>"; };
 		F4E7DDEA25E31620008C770B /* Contacts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contacts.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 			children = (
 				F40883F326E74BD100C3E30D /* Debugging */,
 				F41AE47725D96B21003E4B1E /* Color+Helper.swift */,
+				F4789DCD2754020A00C4F4B7 /* UIImage+Helper.swift */,
 				F41AE48C25D997DC003E4B1E /* Date+Helper.swift */,
 				F41906C825DBEFD200D4CD75 /* DeviceOrientation.swift */,
 			);
@@ -389,6 +392,7 @@
 				F448CE6B25D95B450007C821 /* Persistence.swift in Sources */,
 				F4E7DDEB25E31620008C770B /* Contacts.xcdatamodeld in Sources */,
 				F432EC5526A1907E00C16778 /* ContactForm+Extension.swift in Sources */,
+				F4789DCE2754020A00C4F4B7 /* UIImage+Helper.swift in Sources */,
 				F4708235270DA39F002E906D /* ImageAttributeStructs.swift in Sources */,
 				F4537912260CF3B7002C08C4 /* ContactProfile.swift in Sources */,
 				F448CE6225D95B440007C821 /* ContactsApp.swift in Sources */,

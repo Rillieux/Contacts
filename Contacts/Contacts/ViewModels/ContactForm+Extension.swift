@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotoSelectAndCrop
 
 extension ContactForm {
     
@@ -17,12 +18,13 @@ extension ContactForm {
             self.dataService = dataService
         }
         
-        func addContact(givenName: String, middleName: String, familyName: String, nickname: String) {
+        func addContact(givenName: String, middleName: String, familyName: String, nickname: String, image: ImageAttributes) {
             dataService.addContact(
                 givenName: givenName,
                 middleName: middleName,
                 familyName: familyName,
-                nickName: nickname
+                nickName: nickname,
+                image: image
             )
         }
     }

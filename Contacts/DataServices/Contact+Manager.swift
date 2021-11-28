@@ -6,17 +6,20 @@
 //
 
 import CoreData
+import PhotoSelectAndCrop
+//import UIKit
+import SwiftUI
 
     protocol ContactDataServiceProtocol {
         func getContacts() -> [Contact]
         func getContactById(id: NSManagedObjectID) -> Contact?
-        func addContact(givenName: String, middleName: String, familyName: String, nickName: String)
+        func addContact(givenName: String, middleName: String, familyName: String, nickName: String, image: ImageAttributes?)
         func updateContact(_ contact: Contact)
         func deleteContact(_ contact: Contact)
     }
 
-    class ContactDataService: ContactDataServiceProtocol {
-        
+class ContactDataService: ContactDataServiceProtocol {
+
         var viewContext: NSManagedObjectContext = PersistenceController.shared.viewcontext
         
         func getContacts() -> [Contact] {
@@ -38,7 +41,7 @@ import CoreData
             }
         }
         
-        func addContact(givenName: String = "", middleName: String = "", familyName: String = "", nickName: String = "") {
+    func addContact(givenName: String = "", middleName: String = "", familyName: String = "", nickName: String = "", image: ImageAttributes?) {
             let newContact = Contact(context: viewContext)
             if !givenName.isEmpty {
                 newContact.givenName = givenName
@@ -52,6 +55,17 @@ import CoreData
             if !nickName.isEmpty {
                 newContact.nickname = nickName
             }
+        
+        if image?.originalImage != nil {
+            let newProfileImage = ProfileImage(context: viewContext)
+            let imageCropped = image?.image.asUIImage()
+            newProfileImage.image = imageCropped
+            newProfileImage.originalImage = image?.originalImage
+            newProfileImage.scale = image!.scale
+            newProfileImage.xWidth = image!.xWidth
+            newProfileImage.yHeight = image!.yHeight
+            newProfileImage.contact = newContact
+        }
             saveContext()
         }
         
@@ -70,6 +84,9 @@ import CoreData
             }
             if dateIsLessThanOneYear(date: contact.birthdate ?? Date()) {
                 contact.birthdate = nil
+            }
+            if contact.profileImage != nil {
+                contact.profileImage!.scale = 100.0
             }
             
             saveContext()

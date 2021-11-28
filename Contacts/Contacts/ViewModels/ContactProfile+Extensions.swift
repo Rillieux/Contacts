@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotoSelectAndCrop
 
 extension ContactProfile {
     
@@ -18,6 +19,7 @@ extension ContactProfile {
         @Published var familyName: String = ""
         @Published var nickname: String = ""
         @Published var birthdate: Date = Date()
+        @Published var image: ImageAttributes = ImageAttributes(withSFSymbol: "camera.aperture")
         
         init(dataService: ContactDataServiceProtocol = ContactDataService()) {
             self.dataService = dataService

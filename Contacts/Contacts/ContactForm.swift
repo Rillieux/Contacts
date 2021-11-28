@@ -23,6 +23,7 @@ struct ContactForm: View {
     @State private var familyName = ""
     @State private var nickname = ""
     @State private var image: ImageAttributes = contactImagePlaceholder
+    
     @State private var isEditMode = true
     var body: some View {
         NavigationView {
@@ -60,7 +61,8 @@ struct ContactForm: View {
                             givenName: givenName,
                             middleName: middleName,
                             familyName: familyName,
-                            nickname: nickname
+                            nickname: nickname,
+                            image: image
                         )
                         presentationMode.wrappedValue.dismiss()
                     }
