@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,9 @@
 		F4537912260CF3B7002C08C4 /* ContactProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4537911260CF3B7002C08C4 /* ContactProfile.swift */; };
 		F4537917260CF3CC002C08C4 /* ContactProfile+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4537916260CF3CC002C08C4 /* ContactProfile+Extensions.swift */; };
 		F46CBE2126A00F890098C0F7 /* ContactForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46CBE2026A00F890098C0F7 /* ContactForm.swift */; };
+		F4708235270DA39F002E906D /* ImageAttributeStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4708234270DA39F002E906D /* ImageAttributeStructs.swift */; };
+		F4789DCC2753EE7A00C4F4B7 /* ProfileImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4789DCB2753EE7A00C4F4B7 /* ProfileImage+Helper.swift */; };
+		F4A7BC6F2753CABB0020057A /* PhotoSelectAndCrop in Frameworks */ = {isa = PBXBuildFile; productRef = F4A7BC6E2753CABB0020057A /* PhotoSelectAndCrop */; };
 		F4E7DDEB25E31620008C770B /* Contacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4E7DDE925E31620008C770B /* Contacts.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +77,8 @@
 		F4537911260CF3B7002C08C4 /* ContactProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactProfile.swift; sourceTree = "<group>"; };
 		F4537916260CF3CC002C08C4 /* ContactProfile+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactProfile+Extensions.swift"; sourceTree = "<group>"; };
 		F46CBE2026A00F890098C0F7 /* ContactForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactForm.swift; sourceTree = "<group>"; };
+		F4708234270DA39F002E906D /* ImageAttributeStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAttributeStructs.swift; sourceTree = "<group>"; };
+		F4789DCB2753EE7A00C4F4B7 /* ProfileImage+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileImage+Helper.swift"; sourceTree = "<group>"; };
 		F4E7DDEA25E31620008C770B /* Contacts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contacts.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4A7BC6F2753CABB0020057A /* PhotoSelectAndCrop in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +217,7 @@
 				F448CE9C25D95D0B0007C821 /* ContactList.swift */,
 				F46CBE2026A00F890098C0F7 /* ContactForm.swift */,
 				F4537911260CF3B7002C08C4 /* ContactProfile.swift */,
+				F4708234270DA39F002E906D /* ImageAttributeStructs.swift */,
 				F41906A925DBEDEF00D4CD75 /* ViewModels */,
 			);
 			path = Contacts;
@@ -220,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				F41AE48725D997C2003E4B1E /* Contact+Helper.swift */,
+				F4789DCB2753EE7A00C4F4B7 /* ProfileImage+Helper.swift */,
 			);
 			path = ModelExtensions;
 			sourceTree = "<group>";
@@ -255,6 +263,9 @@
 			dependencies = (
 			);
 			name = Contacts;
+			packageProductDependencies = (
+				F4A7BC6E2753CABB0020057A /* PhotoSelectAndCrop */,
+			);
 			productName = Contacts;
 			productReference = F448CE5E25D95B440007C821 /* Contacts.app */;
 			productType = "com.apple.product-type.application";
@@ -326,6 +337,9 @@
 				Base,
 			);
 			mainGroup = F448CE5525D95B440007C821;
+			packageReferences = (
+				F4A7BC6D2753CABB0020057A /* XCRemoteSwiftPackageReference "PhotoSelectAndCrop" */,
+			);
 			productRefGroup = F448CE5F25D95B440007C821 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -375,11 +389,13 @@
 				F448CE6B25D95B450007C821 /* Persistence.swift in Sources */,
 				F4E7DDEB25E31620008C770B /* Contacts.xcdatamodeld in Sources */,
 				F432EC5526A1907E00C16778 /* ContactForm+Extension.swift in Sources */,
+				F4708235270DA39F002E906D /* ImageAttributeStructs.swift in Sources */,
 				F4537912260CF3B7002C08C4 /* ContactProfile.swift in Sources */,
 				F448CE6225D95B440007C821 /* ContactsApp.swift in Sources */,
 				F41AE48D25D997DC003E4B1E /* Date+Helper.swift in Sources */,
 				F448CE9825D95CE50007C821 /* MainTabView.swift in Sources */,
 				F44B0EBC269EDA0500D9466C /* ContactList+Extension.swift in Sources */,
+				F4789DCC2753EE7A00C4F4B7 /* ProfileImage+Helper.swift in Sources */,
 				F40883EF26E74BBF00C3E30D /* Debugging.swift in Sources */,
 				F448CE9D25D95D0B0007C821 /* ContactList.swift in Sources */,
 				F448CEA225D95D1E0007C821 /* LevelList.swift in Sources */,
@@ -471,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -526,7 +542,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -546,7 +562,7 @@
 				DEVELOPMENT_TEAM = ENAZ3377RP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Contacts/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,7 +584,7 @@
 				DEVELOPMENT_TEAM = ENAZ3377RP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Contacts/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -588,7 +604,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ENAZ3377RP;
 				INFOPLIST_FILE = ContactsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -610,7 +626,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ENAZ3377RP;
 				INFOPLIST_FILE = ContactsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -704,6 +720,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4A7BC6D2753CABB0020057A /* XCRemoteSwiftPackageReference "PhotoSelectAndCrop" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Rillieux/PhotoSelectAndCrop";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4A7BC6E2753CABB0020057A /* PhotoSelectAndCrop */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4A7BC6D2753CABB0020057A /* XCRemoteSwiftPackageReference "PhotoSelectAndCrop" */;
+			productName = PhotoSelectAndCrop;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F4E7DDE925E31620008C770B /* Contacts.xcdatamodeld */ = {

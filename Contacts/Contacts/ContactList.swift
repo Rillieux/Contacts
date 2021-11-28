@@ -50,7 +50,7 @@ struct ContactList: View {
                 self.showingNewContactSheet = true
             },
             label: {
-                Image(systemName: "plus.circle").font(.system(size: 20))
+                Image(systemName: "plus.circle.fill").font(.system(size: 20))
             })
             .sheet(isPresented: $showingNewContactSheet, onDismiss: { viewModel.refreshContacts() }, content: { self.newContactSheet })
     }

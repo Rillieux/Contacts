@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import PhotoSelectAndCrop
 
 struct ContactProfile: View {
     
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel: ContactProfile.ViewModel
+    
+    @State private var isEditMode: Bool = false
     
     var contact: Contact
     
@@ -24,7 +27,9 @@ struct ContactProfile: View {
     
     var body: some View {
         VStack {
-            Text(contact.birthdate?.ageInYearsAndMonths ?? "dunno")
+            ImagePane(image: contactImagePlaceholder, isEditMode: .constant(true), renderingMode: .hierarchical, colors: [.systemGray2, .orange])
+                .frame(width: 160, height: 160)
+            Text(contact.birthdate?.ageInYearsAndMonths ?? "Unknown age")
             TextField("Given Name", text: $viewModel.givenName)
             TextField("Middle Name", text: $viewModel.middleName)
             TextField("Family Name", text: $viewModel.familyName)
@@ -61,7 +66,7 @@ struct ContactProfile_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel: ContactProfile.ViewModel = .init(dataService: MockContactDataService())
         let contacts = viewModel.dataService.getContacts()
-        let contact = contacts[0]
+        let contact = contacts[1]
         ContactProfile(contact: contact)
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import CoreData
-import Combine
 
     protocol ContactDataServiceProtocol {
         func getContacts() -> [Contact]

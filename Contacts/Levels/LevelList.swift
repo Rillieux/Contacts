@@ -15,6 +15,7 @@ struct LevelList: View {
             List{
                 Text("TODO: Levels list")
             }
+            .listStyle(PlainListStyle())
             .navigationTitle("Levels")
         }
     }

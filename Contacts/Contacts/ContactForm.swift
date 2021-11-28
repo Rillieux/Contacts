@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotoSelectAndCrop
 
 struct ContactForm: View {
     
@@ -21,13 +22,13 @@ struct ContactForm: View {
     @State private var middleName = ""
     @State private var familyName = ""
     @State private var nickname = ""
-    
+    @State private var image: ImageAttributes = contactImagePlaceholder
+    @State private var isEditMode = true
     var body: some View {
         NavigationView {
             VStack {
-                Image(systemName: "camera.aperture")
-                    .resizable()
-                    .frame(width: 80, height: 80, alignment: .center)
+                ImagePane(image: image, isEditMode: $isEditMode)
+                    .frame(width: 160, height: 160)
                 Group {
                     TextField("Given name", text: $givenName)
                     TextField("Middle name", text: $middleName)

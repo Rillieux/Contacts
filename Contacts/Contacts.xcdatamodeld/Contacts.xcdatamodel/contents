@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19178.1" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Contact" representedClassName="Contact" syncable="YES" codeGenerationType="class">
         <attribute name="birthdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="familyName_" optional="YES" attributeType="String"/>
@@ -7,6 +7,7 @@
         <attribute name="middleName_" optional="YES" attributeType="String"/>
         <attribute name="nickname_" optional="YES" attributeType="String"/>
         <relationship name="height" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HeightDataPoint" inverseName="contact" inverseEntity="HeightDataPoint"/>
+        <relationship name="profileImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProfileImage" inverseName="contact" inverseEntity="ProfileImage"/>
         <relationship name="weight" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeightDataPoint" inverseName="contact" inverseEntity="WeightDataPoint"/>
     </entity>
     <entity name="HeightDataPoint" representedClassName="HeightDataPoint" syncable="YES" codeGenerationType="class">
@@ -14,14 +15,23 @@
         <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="height" inverseEntity="Contact"/>
     </entity>
+    <entity name="ProfileImage" representedClassName="ProfileImage" syncable="YES" codeGenerationType="class">
+        <attribute name="image_" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="originalImage_" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="scale" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="xWidth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="yHeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="profileImage" inverseEntity="Contact"/>
+    </entity>
     <entity name="WeightDataPoint" representedClassName="WeightDataPoint" syncable="YES" codeGenerationType="class">
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="weight" inverseEntity="Contact"/>
     </entity>
     <elements>
-        <element name="Contact" positionX="-535.03515625" positionY="-129.46484375" width="128" height="134"/>
+        <element name="Contact" positionX="-535.03515625" positionY="-129.46484375" width="128" height="149"/>
         <element name="HeightDataPoint" positionX="-531" positionY="-90" width="128" height="74"/>
         <element name="WeightDataPoint" positionX="-522" positionY="-63" width="128" height="74"/>
+        <element name="ProfileImage" positionX="-531" positionY="-63" width="128" height="119"/>
     </elements>
 </model>
