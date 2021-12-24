@@ -24,7 +24,11 @@ struct ContactList: View {
                 ForEach(viewModel.contacts) { contact in
                     NavigationLink(
                         destination: ContactProfile(contact: contact)) {
-                            Text("\(contact.displayName())")
+                            if contact.profileImage != nil {
+                            Text("\(contact.givenName) \(contact.profileImage!.scale)")
+                            } else {
+                                Text("\(contact.givenName)")
+                            }
                     }
                 }
                 .onDelete(perform: { indexSet in

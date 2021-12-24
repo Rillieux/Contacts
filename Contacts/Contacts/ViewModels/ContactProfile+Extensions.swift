@@ -32,14 +32,34 @@ extension ContactProfile {
             contact.familyName = familyName
             contact.nickname = nickname
             contact.birthdate = birthdate
+            
+            //We haven't saved an image yet for this contact, but
+            //we have selected one in the picker, so now we want to save it.
+            if contact.profileImage == nil && image.originalImage != nil {
+                dataService.createNewProfileImage(from: image, for: contact)
+            } else {
+                //This contact already has an image
+                contact.profileImage?.originalImage = image.originalImage
+                contact.profileImage?.image = image.image.asUIImage()
+                contact.profileImage?.scale = image.scale
+                contact.profileImage?.xWidth = image.xWidth
+                contact.profileImage?.yHeight = image.yHeight
+            }
             dataService.updateContact(contact)
             findPath()
         }
         
         func loadProfileFromContact(_ contact: Contact) {
             self.givenName = contact.givenName
+            self.middleName = contact.middleName
             self.familyName = contact.familyName
+            self.nickname = contact.nickname
             self.birthdate = contact.birthdate ?? Date()
+            guard let image = contact.profileImage?.attributes() else {
+                print("EMPTY IMAGE")
+                return
+            }
+            self.image = image
         }
     }
 }

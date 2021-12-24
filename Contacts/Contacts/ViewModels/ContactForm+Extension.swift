@@ -18,7 +18,7 @@ extension ContactForm {
             self.dataService = dataService
         }
         
-        func addContact(givenName: String, middleName: String, familyName: String, nickname: String, image: ImageAttributes) {
+        func addContact(givenName: String, middleName: String, familyName: String, nickname: String, image: ImageAttributes?) {
             dataService.addContact(
                 givenName: givenName,
                 middleName: middleName,

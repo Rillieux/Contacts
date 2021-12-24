@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import SwiftUI
+import PhotoSelectAndCrop
 
 extension ProfileImage {
     var image: UIImage? {
@@ -34,6 +35,18 @@ extension ProfileImage {
         }
         set {
             originalImage_ = newValue?.pngData()
+        }
+    }
+    
+    func attributes() -> ImageAttributes {
+        if image != nil && originalImage != nil {
+            let imageAttributes = ImageAttributes(
+                image: Image(uiImage: image!),
+                originalImage: originalImage,
+                scale: scale, xWidth: xWidth, yHeight: yHeight)
+            return imageAttributes
+        } else {
+            return contactImagePlaceholder
         }
     }
 }

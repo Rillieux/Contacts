@@ -22,7 +22,8 @@ struct ContactForm: View {
     @State private var middleName = ""
     @State private var familyName = ""
     @State private var nickname = ""
-    @State private var image: ImageAttributes = contactImagePlaceholder
+    @State private var image: ImageAttributes = ImageAttributes(withSFSymbol: "star.fill")
+    //contactImagePlaceholder
     
     @State private var isEditMode = true
     var body: some View {

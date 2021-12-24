@@ -27,8 +27,10 @@ struct ContactProfile: View {
     
     var body: some View {
         VStack {
-            ImagePane(image: contactImagePlaceholder, isEditMode: .constant(true), renderingMode: .hierarchical, colors: [.systemGray2, .orange])
+            ImagePane(image: viewModel.image, isEditMode: .constant(true), renderingMode: .palette, colors: [.mint])
                 .frame(width: 160, height: 160)
+//            ImagePane(image: (contact.profileImage != nil) ? viewModel.image : ImageAttributes(withSFSymbol: "bookmark.circle"), isEditMode: .constant(true), renderingMode: .palette, colors: [.mint])
+//                .frame(width: 160, height: 160)
             Text(contact.birthdate?.ageInYearsAndMonths ?? "Unknown age")
             TextField("Given Name", text: $viewModel.givenName)
             TextField("Middle Name", text: $viewModel.middleName)
