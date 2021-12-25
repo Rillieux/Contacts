@@ -22,15 +22,16 @@ struct ContactForm: View {
     @State private var middleName = ""
     @State private var familyName = ""
     @State private var nickname = ""
-    @State private var image: ImageAttributes = ImageAttributes(withSFSymbol: "star.fill")
+    @State private var image: ImageAttributes = ImageAttributes(withSFSymbol: imagePlaceholder)
     //contactImagePlaceholder
     
     @State private var isEditMode = true
     var body: some View {
         NavigationView {
             VStack {
-                ImagePane(image: image, isEditMode: $isEditMode)
+                ImagePane(image: image, isEditMode: $isEditMode, renderingMode: .hierarchical, colors: [.systemTeal])
                     .frame(width: 160, height: 160)
+
                 Group {
                     TextField("Given name", text: $givenName)
                     TextField("Middle name", text: $middleName)
@@ -78,9 +79,6 @@ struct ContactForm: View {
 
 struct ContactForm_Previews: PreviewProvider {
     static var previews: some View {
-        //        let viewModel: ContactForm.ViewModel = .init(dataService: MockContactDataService())
-        //        let contacts = viewModel.dataService.getContacts()
-        //        let contact = contacts[0]
         ContactForm()
     }
 }

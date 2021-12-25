@@ -8,4 +8,4 @@
 import PhotoSelectAndCrop
 import SwiftUI
 
-let contactImagePlaceholder = ImageAttributes(withSFSymbol: "camera.aperture")
+let imagePlaceholder: String = "person.crop.circle.fill"

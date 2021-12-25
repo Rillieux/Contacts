@@ -49,7 +49,7 @@ extension ProfileImage {
                 scale: scale, xWidth: xWidth, yHeight: yHeight)
             return imageAttributes
         } else {
-            return contactImagePlaceholder
+            return ImageAttributes(withSFSymbol: imagePlaceholder)
         }
     }
 }

@@ -19,7 +19,7 @@ extension ContactProfile {
         @Published var familyName: String = ""
         @Published var nickname: String = ""
         @Published var birthdate: Date = Date()
-        @Published var image: ImageAttributes = ImageAttributes(withSFSymbol: "camera.aperture")
+        @Published var image: ImageAttributes = ImageAttributes(withSFSymbol: imagePlaceholder)
         
         init(dataService: ContactDataServiceProtocol = ContactDataService()) {
             self.dataService = dataService
@@ -38,7 +38,6 @@ extension ContactProfile {
             if contact.profileImage == nil && image.originalImage != nil {
                 dataService.createNewProfileImage(from: image, for: contact)
             } else {
-                 print("*** This contact already has an image") 
                 contact.profileImage?.originalImage = image.originalImage
                 contact.profileImage?.image = image.croppedImage
                 contact.profileImage?.scale = image.scale
@@ -56,7 +55,6 @@ extension ContactProfile {
             self.nickname = contact.nickname
             self.birthdate = contact.birthdate ?? Date()
             guard let image = contact.profileImage?.attributes() else {
-                print("EMPTY IMAGE")
                 return
             }
             self.image = image

@@ -24,11 +24,7 @@ struct ContactList: View {
                 ForEach(viewModel.contacts) { contact in
                     NavigationLink(
                         destination: ContactProfile(contact: contact)) {
-                            if contact.profileImage != nil {
-                            Text("\(contact.givenName) \(contact.profileImage!.scale)")
-                            } else {
-                                Text("\(contact.givenName)")
-                            }
+                            Text("\(contact.displayName())")
                     }
                 }
                 .onDelete(perform: { indexSet in
@@ -37,7 +33,7 @@ struct ContactList: View {
                 })
             }
             .onAppear(perform: viewModel.refreshContacts)
-            .navigationTitle("Contacts: \(viewModel.contacts.count)")
+            .navigationTitle("Contacts")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading, content: { EditButton() })
                 ToolbarItem(placement: .navigationBarTrailing) {

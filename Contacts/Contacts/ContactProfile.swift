@@ -9,9 +9,7 @@ import SwiftUI
 import PhotoSelectAndCrop
 
 struct ContactProfile: View {
-    
-    @Environment(\.presentationMode) var presentationMode
-    
+
     @StateObject var viewModel: ContactProfile.ViewModel
     
     @State private var isEditMode: Bool = false
@@ -25,41 +23,74 @@ struct ContactProfile: View {
     
     @State private var showAlert: Bool = false
     
+    let profileLarge: CGFloat = 240
+    let profileSmall: CGFloat = 160
+
     var body: some View {
         VStack {
-            ImagePane(image: viewModel.image, isEditMode: .constant(true), renderingMode: .palette, colors: [.mint])
-                .frame(width: 160, height: 160)
-//            ImagePane(image: (contact.profileImage != nil) ? viewModel.image : ImageAttributes(withSFSymbol: "bookmark.circle"), isEditMode: .constant(true), renderingMode: .palette, colors: [.mint])
-//                .frame(width: 160, height: 160)
-            Text(contact.birthdate?.ageInYearsAndMonths ?? "Unknown age")
-            TextField("Given Name", text: $viewModel.givenName)
-            TextField("Middle Name", text: $viewModel.middleName)
-            TextField("Family Name", text: $viewModel.familyName)
-            TextField("Nickame", text: $viewModel.nickname)
-            DatePicker(selection: $viewModel.birthdate, in: ...Date(), displayedComponents: .date) {
-                Text( contact.birthdate != nil ? "Change birthdate" : "Pick birthdate" )
+            ImagePane(image: viewModel.image, isEditMode: $isEditMode, renderingMode: .hierarchical, colors: [.systemTeal])
+                .frame(
+                    width: isEditMode ? profileSmall : profileLarge,
+                    height: isEditMode ? profileSmall : profileLarge)
+            if !isEditMode {
+                VStack (spacing: 8) {
+                    Text("\(contact.givenName) \(contact.familyName)")
+                        .font(.largeTitle)
+                    Text(contact.birthdate?.ageInYearsAndMonths ?? "Unknown age")
+                    HStack {
+                        Circle().fill(Color.systemPink)
+                            .frame(width: 12, height: 12)
+                        Text("Category").bold()
+                    }
+                }
+                .padding(.top, -22)
+            } else {
+                Group {
+                    TextField("Given Name", text: $viewModel.givenName)
+                    TextField("Middle Name", text: $viewModel.middleName)
+                    TextField("Family Name", text: $viewModel.familyName)
+                    TextField("Nickame", text: $viewModel.nickname)
+                    DatePicker(selection: $viewModel.birthdate, in: ...Date(), displayedComponents: .date) {
+                        Text( contact.birthdate != nil ? "Change birthdate" : "Pick birthdate" )
+                    }
+                }
             }
             Spacer()
         }
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding()
+        .padding(.top, -36)
         .onAppear(perform: {
             viewModel.loadProfileFromContact(contact)
         })
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Button("Cancel") {
-                    presentationMode.wrappedValue.dismiss()
+                if isEditMode {
+                    Button("Cancel") {
+                        withAnimation{
+                            isEditMode.toggle()
+                        }
+                    }
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Done") {
-                    viewModel.updateContact(contact)
-                    presentationMode.wrappedValue.dismiss()
+                if isEditMode {
+                    Button("Done") {
+                        viewModel.updateContact(contact)
+                        withAnimation{
+                            isEditMode.toggle()
+                        }
+                    }
+                } else {
+                    Button("Edit") {
+                        withAnimation{
+                            isEditMode.toggle()
+                        }
+                    }
                 }
             }
         }
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(isEditMode ? true : false)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -69,6 +100,8 @@ struct ContactProfile_Previews: PreviewProvider {
         let viewModel: ContactProfile.ViewModel = .init(dataService: MockContactDataService())
         let contacts = viewModel.dataService.getContacts()
         let contact = contacts[1]
-        ContactProfile(contact: contact)
+        NavigationView {
+            ContactProfile(contact: contact)
+        }
     }
 }
