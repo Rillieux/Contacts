@@ -27,10 +27,10 @@ extension ContactProfile {
         }
         
         func updateContact(_ contact: Contact){
-            contact.givenName = givenName
-            contact.middleName = middleName
-            contact.familyName = familyName
-            contact.nickname = nickname
+            contact.givenName = givenName.trimmingCharacters(in: .whitespacesAndNewlines)
+            contact.middleName = middleName.trimmingCharacters(in: .whitespacesAndNewlines)
+            contact.familyName = familyName.trimmingCharacters(in: .whitespacesAndNewlines)
+            contact.nickname = nickname.trimmingCharacters(in: .whitespacesAndNewlines)
             contact.birthdate = birthdate
             
             //We haven't saved an image yet for this contact, but

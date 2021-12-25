@@ -32,6 +32,9 @@ struct ContactProfile: View {
                 .frame(
                     width: isEditMode ? profileSmall : profileLarge,
                     height: isEditMode ? profileSmall : profileLarge)
+                .onTapGesture(count: 2, perform: {
+                    toggleIsEditMode()
+                })
             if !isEditMode {
                 VStack (spacing: 8) {
                     Text("\(contact.givenName) \(contact.familyName)")
@@ -69,9 +72,7 @@ struct ContactProfile: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 if isEditMode {
                     Button("Cancel") {
-                        withAnimation{
-                            isEditMode.toggle()
-                        }
+                        toggleIsEditMode()
                     }
                 }
             }
@@ -79,21 +80,24 @@ struct ContactProfile: View {
                 if isEditMode {
                     Button("Done") {
                         viewModel.updateContact(contact)
-                        withAnimation{
-                            isEditMode.toggle()
-                        }
+                        toggleIsEditMode()
                     }
                 } else {
                     Button("Edit") {
-                        withAnimation{
-                            isEditMode.toggle()
-                        }
+                        toggleIsEditMode()
                     }
                 }
             }
         }
         .navigationBarBackButtonHidden(isEditMode ? true : false)
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func toggleIsEditMode() {
+        withAnimation{
+            isEditMode.toggle()
+            viewModel.loadProfileFromContact(contact)
+        }
     }
 }
 
