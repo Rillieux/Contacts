@@ -84,8 +84,7 @@ class ContactDataService: ContactDataServiceProtocol {
     
     func createNewProfileImage(from image: ImageAttributes, for contact: Contact) {
         let newProfileImage = ProfileImage(context: viewContext)
-        let imageCropped = image.image.asUIImage()
-        newProfileImage.image = imageCropped
+        newProfileImage.image = image.croppedImage
         newProfileImage.originalImage = image.originalImage
         newProfileImage.scale = image.scale
         newProfileImage.xWidth = image.xWidth

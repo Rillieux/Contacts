@@ -24,6 +24,7 @@ extension ProfileImage {
             image_ = newValue?.pngData()
         }
     }
+    
     var originalImage: UIImage? {
         get {
             let tempImage: UIImage? = UIImage(data: originalImage_!)
@@ -40,9 +41,11 @@ extension ProfileImage {
     
     func attributes() -> ImageAttributes {
         if image != nil && originalImage != nil {
-            let imageAttributes = ImageAttributes(
+            let imageAttributes =
+            ImageAttributes(
                 image: Image(uiImage: image!),
                 originalImage: originalImage,
+                croppedImage: image,
                 scale: scale, xWidth: xWidth, yHeight: yHeight)
             return imageAttributes
         } else {
