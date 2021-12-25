@@ -1,5 +1,5 @@
 # Contacts
 
-> :warning: THIS IS A WORK IN PROCESS WHICH IS ONLY BEGINNING. Stay tuned??
+> :warning: THIS IS A WORK IN PROCESS.
 
-Contacts is an example of SwiftUI life-cycle application using CoreData and MVVM Architecture.
+Contacts is an example of SwiftUI life-cycle application using CoreData and MVVM Architecture. 
