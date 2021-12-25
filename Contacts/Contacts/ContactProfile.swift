@@ -36,6 +36,8 @@ struct ContactProfile: View {
                 VStack (spacing: 8) {
                     Text("\(contact.givenName) \(contact.familyName)")
                         .font(.largeTitle)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.667)
                     Text(contact.birthdate?.ageInYearsAndMonths ?? "Unknown age")
                     HStack {
                         Circle().fill(Color.systemPink)

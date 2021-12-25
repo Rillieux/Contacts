@@ -26,7 +26,7 @@ class ContactDataService: ContactDataServiceProtocol {
     
     func getContacts() -> [Contact] {
         let request: NSFetchRequest<Contact> = Contact.fetchRequest()
-        let sort: NSSortDescriptor = NSSortDescriptor(keyPath: \Contact.givenName_, ascending: true)
+        let sort: NSSortDescriptor = NSSortDescriptor(keyPath: \Contact.familyName_, ascending: true)
         request.sortDescriptors = [sort]
         do {
             return try viewContext.fetch(request)

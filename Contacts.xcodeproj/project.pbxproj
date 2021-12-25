@@ -129,6 +129,7 @@
 		F41AE47325D96AD1003E4B1E /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				F4708234270DA39F002E906D /* ImageAttributeStructs.swift */,
 				F40883F326E74BD100C3E30D /* Debugging */,
 				F41AE47725D96B21003E4B1E /* Color+Helper.swift */,
 				F41AE48C25D997DC003E4B1E /* Date+Helper.swift */,
@@ -217,7 +218,6 @@
 				F448CE9C25D95D0B0007C821 /* ContactList.swift */,
 				F46CBE2026A00F890098C0F7 /* ContactForm.swift */,
 				F4537911260CF3B7002C08C4 /* ContactProfile.swift */,
-				F4708234270DA39F002E906D /* ImageAttributeStructs.swift */,
 				F41906A925DBEDEF00D4CD75 /* ViewModels */,
 			);
 			path = Contacts;

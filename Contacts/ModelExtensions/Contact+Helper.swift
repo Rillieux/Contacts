@@ -43,7 +43,6 @@ extension Contact {
         }
     }
     
-    
     func displayName() -> String {
         var components = PersonNameComponents()
         components.givenName = givenName
