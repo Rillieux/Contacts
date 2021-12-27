@@ -35,7 +35,7 @@ extension ProfileImage {
             }
         }
         set {
-            originalImage_ = newValue?.pngData()
+            originalImage_ = newValue?.jpegData(compressionQuality: 1)
         }
     }
     
